@@ -30,5 +30,5 @@
 ### 내 뱃속의 기록 UI
 ![프로젝트 UI](https://user-images.githubusercontent.com/91923809/142198874-10a94d18-3644-4a2c-b64c-810caa1bc18d.png)
 
-Notion 연결
+### Notion 연결
 [상세한 정보](https://fir-treatment-31c.notion.site/Meal-Log-31f040950e2d44ae94590d8448d590a6)
