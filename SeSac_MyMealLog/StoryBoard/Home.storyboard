@@ -42,29 +42,30 @@
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ta7-rl-ZdP">
-                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="SNP-DR-Y4V">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="SNP-DR-Y4V">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="297"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BWq-7y-KQS">
-                                            <rect key="frame" x="0.0" y="54" width="414" height="226"/>
+                                            <rect key="frame" x="0.0" y="49" width="414" height="238"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Env-NN-1dg">
-                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="itemSize" width="200" height="206"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="wOi-7j-JPS">
-                                                    <rect key="frame" x="0.0" y="49" width="128" height="128"/>
+                                                    <rect key="frame" x="0.0" y="16" width="200" height="206"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ywq-TA-1eC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="206"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </collectionViewCellContentView>
+                                                    <size key="customSize" width="200" height="206"/>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
@@ -83,10 +84,10 @@
                                         <constraint firstItem="bKJ-22-Y7T" firstAttribute="top" secondItem="SNP-DR-Y4V" secondAttribute="top" constant="5" id="BCx-Jv-G5u"/>
                                         <constraint firstAttribute="trailing" secondItem="BWq-7y-KQS" secondAttribute="trailing" id="Toq-9k-DOe"/>
                                         <constraint firstItem="BWq-7y-KQS" firstAttribute="leading" secondItem="SNP-DR-Y4V" secondAttribute="leading" id="bfX-Jc-OJ7"/>
-                                        <constraint firstItem="BWq-7y-KQS" firstAttribute="top" secondItem="bKJ-22-Y7T" secondAttribute="bottom" constant="5" id="eEl-Cg-Fca"/>
+                                        <constraint firstItem="BWq-7y-KQS" firstAttribute="top" secondItem="bKJ-22-Y7T" secondAttribute="bottom" id="eEl-Cg-Fca"/>
                                         <constraint firstAttribute="trailing" secondItem="bKJ-22-Y7T" secondAttribute="trailing" constant="30" id="h4l-vb-wE5"/>
                                         <constraint firstItem="bKJ-22-Y7T" firstAttribute="leading" secondItem="SNP-DR-Y4V" secondAttribute="leading" constant="10" id="j1b-j9-g84"/>
-                                        <constraint firstAttribute="bottom" secondItem="BWq-7y-KQS" secondAttribute="bottom" id="xGd-p7-maG"/>
+                                        <constraint firstAttribute="bottom" secondItem="BWq-7y-KQS" secondAttribute="bottom" constant="10" id="xGd-p7-maG"/>
                                     </constraints>
                                 </view>
                             </tableView>
@@ -100,7 +101,7 @@
                             <constraint firstItem="Ta7-rl-ZdP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YtE-dX-NID"/>
                             <constraint firstItem="Bly-W2-MRQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="e8r-Ub-g9w"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Ta7-rl-ZdP" secondAttribute="bottom" id="ofy-4f-Mxf"/>
-                            <constraint firstItem="Ta7-rl-ZdP" firstAttribute="top" secondItem="Bly-W2-MRQ" secondAttribute="bottom" constant="20" id="vlj-jd-Tdf"/>
+                            <constraint firstItem="Ta7-rl-ZdP" firstAttribute="top" secondItem="Bly-W2-MRQ" secondAttribute="bottom" id="vlj-jd-Tdf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cgl-Ts-QaT"/>

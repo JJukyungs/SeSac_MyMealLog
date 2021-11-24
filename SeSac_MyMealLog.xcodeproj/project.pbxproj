@@ -31,6 +31,16 @@
 		1EB7A6F4274C032200ECC25C /* HomeHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A6F2274C032200ECC25C /* HomeHeaderCollectionViewCell.xib */; };
 		1EB7A6F7274C23FC00ECC25C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A6F5274C23FC00ECC25C /* SearchTableViewCell.swift */; };
 		1EB7A6F8274C23FC00ECC25C /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A6F6274C23FC00ECC25C /* SearchTableViewCell.xib */; };
+		1EB7A6FB274D846300ECC25C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A6FA274D846300ECC25C /* UIColor+Extension.swift */; };
+		1EB7A700274E3C4A00ECC25C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1EB7A6FF274E3C4A00ECC25C /* Realm */; };
+		1EB7A702274E3C4A00ECC25C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1EB7A701274E3C4A00ECC25C /* RealmSwift */; };
+		1EB7A704274E3CA900ECC25C /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A703274E3CA900ECC25C /* RealmModel.swift */; };
+		1EB7A713274E973D00ECC25C /* ONE Mobile OTF Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A712274E973C00ECC25C /* ONE Mobile OTF Bold.otf */; };
+		1EB7A715274E97E300ECC25C /* ONE Mobile POP OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A714274E97E300ECC25C /* ONE Mobile POP OTF.otf */; };
+		1EB7A717274E980300ECC25C /* ONE Mobile Title OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A716274E980300ECC25C /* ONE Mobile Title OTF.otf */; };
+		1EB7A719274E9AF700ECC25C /* ONE Mobile OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A718274E9AF700ECC25C /* ONE Mobile OTF Light.otf */; };
+		1EB7A71B274E9C7700ECC25C /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A71A274E9C7700ECC25C /* UIFont+Extension.swift */; };
+		1EB7A71D274EA34900ECC25C /* SliderStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A71C274EA34900ECC25C /* SliderStar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +70,14 @@
 		1EB7A6F2274C032200ECC25C /* HomeHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		1EB7A6F5274C23FC00ECC25C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		1EB7A6F6274C23FC00ECC25C /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		1EB7A6FA274D846300ECC25C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		1EB7A703274E3CA900ECC25C /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		1EB7A712274E973C00ECC25C /* ONE Mobile OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile OTF Bold.otf"; sourceTree = "<group>"; };
+		1EB7A714274E97E300ECC25C /* ONE Mobile POP OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile POP OTF.otf"; sourceTree = "<group>"; };
+		1EB7A716274E980300ECC25C /* ONE Mobile Title OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile Title OTF.otf"; sourceTree = "<group>"; };
+		1EB7A718274E9AF700ECC25C /* ONE Mobile OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile OTF Light.otf"; sourceTree = "<group>"; };
+		1EB7A71A274E9C7700ECC25C /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		1EB7A71C274EA34900ECC25C /* SliderStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EB7A702274E3C4A00ECC25C /* RealmSwift in Frameworks */,
+				1EB7A700274E3C4A00ECC25C /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +112,7 @@
 		1EB7A69A2744E9A700ECC25C /* SeSac_MyMealLog */ = {
 			isa = PBXGroup;
 			children = (
+				1EB7A705274E800900ECC25C /* Font */,
 				1EB7A6D2274796B100ECC25C /* StoryBoard */,
 				1EB7A6D12747963500ECC25C /* Controller */,
 				1EB7A6D02747962A00ECC25C /* Model */,
@@ -114,6 +135,8 @@
 		1EB7A6D02747962A00ECC25C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1EB7A6FD274E3BF700ECC25C /* Realm */,
+				1EB7A6FC274D8C8E00ECC25C /* Extension */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +154,7 @@
 				1EB7A6DD27479DA700ECC25C /* HomeViewController.swift */,
 				1EB7A6E12747A2ED00ECC25C /* MyPageViewController.swift */,
 				1EB7A6E52748126D00ECC25C /* ListViewController.swift */,
+				1EB7A71C274EA34900ECC25C /* SliderStar.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -138,12 +162,10 @@
 		1EB7A6D2274796B100ECC25C /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				1EB7A6F9274CEBD100ECC25C /* Cell */,
 				1EB7A6A12744E9A700ECC25C /* Main.storyboard */,
 				1EB7A6A62744E9A800ECC25C /* LaunchScreen.storyboard */,
 				1EB7A6DB27479D9C00ECC25C /* Home.storyboard */,
-				1EB7A6F2274C032200ECC25C /* HomeHeaderCollectionViewCell.xib */,
-				1EB7A6EE274B354D00ECC25C /* HomeTableViewCell.xib */,
-				1EB7A6E82749527600ECC25C /* TagCollectionViewCell.xib */,
 				1EB7A6D727479D0B00ECC25C /* Search.storyboard */,
 				1EB7A6D32747979200ECC25C /* Add.storyboard */,
 				1EB7A6E32748125C00ECC25C /* List.storyboard */,
@@ -151,6 +173,44 @@
 				1EB7A6DF2747A2C300ECC25C /* MyPage.storyboard */,
 			);
 			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		1EB7A6F9274CEBD100ECC25C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1EB7A6F2274C032200ECC25C /* HomeHeaderCollectionViewCell.xib */,
+				1EB7A6E82749527600ECC25C /* TagCollectionViewCell.xib */,
+				1EB7A6EE274B354D00ECC25C /* HomeTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1EB7A6FC274D8C8E00ECC25C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1EB7A6FA274D846300ECC25C /* UIColor+Extension.swift */,
+				1EB7A71A274E9C7700ECC25C /* UIFont+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1EB7A6FD274E3BF700ECC25C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				1EB7A703274E3CA900ECC25C /* RealmModel.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		1EB7A705274E800900ECC25C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				1EB7A714274E97E300ECC25C /* ONE Mobile POP OTF.otf */,
+				1EB7A716274E980300ECC25C /* ONE Mobile Title OTF.otf */,
+				1EB7A718274E9AF700ECC25C /* ONE Mobile OTF Light.otf */,
+				1EB7A712274E973C00ECC25C /* ONE Mobile OTF Bold.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +229,10 @@
 			dependencies = (
 			);
 			name = SeSac_MyMealLog;
+			packageProductDependencies = (
+				1EB7A6FF274E3C4A00ECC25C /* Realm */,
+				1EB7A701274E3C4A00ECC25C /* RealmSwift */,
+			);
 			productName = SeSac_MyMealLog;
 			productReference = 1EB7A6982744E9A700ECC25C /* SeSac_MyMealLog.app */;
 			productType = "com.apple.product-type.application";
@@ -197,6 +261,9 @@
 				Base,
 			);
 			mainGroup = 1EB7A68F2744E9A700ECC25C;
+			packageReferences = (
+				1EB7A6FE274E3C4A00ECC25C /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 1EB7A6992744E9A700ECC25C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -213,14 +280,18 @@
 			files = (
 				1EB7A6A82744E9A800ECC25C /* LaunchScreen.storyboard in Resources */,
 				1EB7A6A52744E9A800ECC25C /* Assets.xcassets in Resources */,
+				1EB7A713274E973D00ECC25C /* ONE Mobile OTF Bold.otf in Resources */,
 				1EB7A6E42748125C00ECC25C /* List.storyboard in Resources */,
 				1EB7A6D42747979200ECC25C /* Add.storyboard in Resources */,
 				1EB7A6F4274C032200ECC25C /* HomeHeaderCollectionViewCell.xib in Resources */,
 				1EB7A6F8274C23FC00ECC25C /* SearchTableViewCell.xib in Resources */,
 				1EB7A6DC27479D9C00ECC25C /* Home.storyboard in Resources */,
+				1EB7A717274E980300ECC25C /* ONE Mobile Title OTF.otf in Resources */,
 				1EB7A6E02747A2C300ECC25C /* MyPage.storyboard in Resources */,
+				1EB7A719274E9AF700ECC25C /* ONE Mobile OTF Light.otf in Resources */,
 				1EB7A6EA2749527700ECC25C /* TagCollectionViewCell.xib in Resources */,
 				1EB7A6A32744E9A700ECC25C /* Main.storyboard in Resources */,
+				1EB7A715274E97E300ECC25C /* ONE Mobile POP OTF.otf in Resources */,
 				1EB7A6F0274B354D00ECC25C /* HomeTableViewCell.xib in Resources */,
 				1EB7A6D827479D0B00ECC25C /* Search.storyboard in Resources */,
 			);
@@ -234,15 +305,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EB7A6DA27479D1C00ECC25C /* SearchViewController.swift in Sources */,
+				1EB7A704274E3CA900ECC25C /* RealmModel.swift in Sources */,
 				1EB7A6A02744E9A700ECC25C /* ViewController.swift in Sources */,
+				1EB7A71B274E9C7700ECC25C /* UIFont+Extension.swift in Sources */,
 				1EB7A6F3274C032200ECC25C /* HomeHeaderCollectionViewCell.swift in Sources */,
 				1EB7A6E22747A2ED00ECC25C /* MyPageViewController.swift in Sources */,
 				1EB7A6E92749527700ECC25C /* TagCollectionViewCell.swift in Sources */,
 				1EB7A69C2744E9A700ECC25C /* AppDelegate.swift in Sources */,
+				1EB7A71D274EA34900ECC25C /* SliderStar.swift in Sources */,
 				1EB7A6D6274797A800ECC25C /* AddViewController.swift in Sources */,
 				1EB7A6EF274B354D00ECC25C /* HomeTableViewCell.swift in Sources */,
 				1EB7A69E2744E9A700ECC25C /* SceneDelegate.swift in Sources */,
 				1EB7A6F7274C23FC00ECC25C /* SearchTableViewCell.swift in Sources */,
+				1EB7A6FB274D846300ECC25C /* UIColor+Extension.swift in Sources */,
 				1EB7A6E62748126D00ECC25C /* ListViewController.swift in Sources */,
 				1EB7A6DE27479DA700ECC25C /* HomeViewController.swift in Sources */,
 			);
@@ -462,6 +537,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1EB7A6FE274E3C4A00ECC25C /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.18.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1EB7A6FF274E3C4A00ECC25C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EB7A6FE274E3C4A00ECC25C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		1EB7A701274E3C4A00ECC25C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EB7A6FE274E3C4A00ECC25C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1EB7A6902744E9A700ECC25C /* Project object */;
 }

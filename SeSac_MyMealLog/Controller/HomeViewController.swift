@@ -53,11 +53,19 @@ class HomeViewController: UIViewController {
     func navigationSetUI() {
         self.navigationController?.navigationBar.barTintColor = .red
         self.navigationItem.title = "내 뱃속의 기록"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .automatic
+        
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.backgroundColor = UIColor.red
+        self.navigationController?.navigationBar.backgroundColor = .mainRedColor
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().nvTitleFont]
+        
         // font 변경
+        
+        
         
         
     }
@@ -77,7 +85,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
         
         cell.homeTableCellImageView.image = UIImage(named: "test")
-        
+        cell.homeTableCellStarImageView.image = UIImage(named: "star_full")
         return cell
         
     }
@@ -107,7 +115,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeHeaderCollectionViewCell", for: indexPath) as? HomeHeaderCollectionViewCell else { return UICollectionViewCell() }
 
         cell.headerImageView.image = UIImage(named: "test")
-
+        cell.headerStarImageView.image = UIImage(named: "star_full")
 
         return cell
     }
