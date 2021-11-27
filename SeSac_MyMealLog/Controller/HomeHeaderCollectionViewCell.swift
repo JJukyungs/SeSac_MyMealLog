@@ -18,7 +18,11 @@ class HomeHeaderCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        
+        headerTitleLabel.font = UIFont().collectionTitleFont
+        headerStarLabel.font = UIFont().collectionStarRatingFont
+
     }
 
 }

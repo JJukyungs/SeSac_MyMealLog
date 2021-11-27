@@ -10,20 +10,22 @@ import RealmSwift
 
 class UserData: Object {
     @Persisted var restaurantTitle : String
-    @Persisted var date = Date()
-    @Persisted var content : String?
-    @Persisted var ratingStar : Double
+    @Persisted var date : String
+    @Persisted var contentText : String?
+    @Persisted var ratingStar : String
+    @Persisted var location : String?
     
     // PK
     @Persisted(primaryKey: true) var _id: ObjectId
     
-    convenience init(restaurantTitle: String, date: Date, content: String?, ratingStar: Double) {
+    convenience init(restaurantTitle: String, date: String, content: String?, ratingStar: String, location: String?) {
         self.init()
         
         self.restaurantTitle = restaurantTitle
         self.date = date
-        self.content = content
+        self.contentText = content
         self.ratingStar = ratingStar
+        self.location = location
     }
     
 }

@@ -19,7 +19,12 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // TableViewCell Font set
+        homeTableCellStarLabel.font = UIFont().contentFont
+        homeTableCellDateLabel.font = UIFont().smallContentFont
+        homeTableCellTitleLabel.font = UIFont().sectiontitleFont
+        homeTableCellContentLabel.font = UIFont().contentFont
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

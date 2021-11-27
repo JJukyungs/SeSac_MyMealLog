@@ -19,10 +19,13 @@ class AddViewController: UIViewController {
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var dateButton: UIButton!
+//    @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var ratingLabel: UILabel!
+    
+    @IBOutlet weak var dateTextField: UITextField!
+    
+    let datePicekr = UIDatePicker()
     
     // realm 연결
     let localRealm = try! Realm()
@@ -35,9 +38,10 @@ class AddViewController: UIViewController {
 
         
         setUI()
-        
-        
+        createDatePicekrView()
     }
+    
+    // MARK: - Function
     
     func setUI() {
         mainTitleLabel.textAlignment = .center
@@ -51,13 +55,53 @@ class AddViewController: UIViewController {
         saveButton.backgroundColor = UIColor.mainRedColor
         saveButton.clipsToBounds = true
         saveButton.layer.cornerRadius = 10
+        
+        dateTextField.textAlignment = .center
+        ratingLabel.text = "0"
     }
 
+    // DatePicker
+    func createDatePicekrView() {
+        // Toolbar 만들기
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // done 버튼 만들기
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClicked))
+        
+        // 버튼 툴바에 할당
+        toolbar.setItems([doneButton], animated: true)
+        
+        // textField 에 toolbar 입히기
+        dateTextField.inputAccessoryView = toolbar
+        dateTextField.inputView = datePicekr
+        
+        datePicekr.datePickerMode = .date
+        datePicekr.preferredDatePickerStyle = .wheels
+    }
     
+    @objc func doneClicked() {
+        // dateFormatter
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        
+        dateTextField.text = formatter.string(from: datePicekr.date)
+        self.view.endEditing(true)
+    }
+    
+    
+    
+    // MARK: - Action
    
     // 저장 버튼 클릭시 입력받은 데이터가 Realm 으로 넘어감
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         
+        let task = UserData(restaurantTitle: restaurantTextField.text!, date: dateTextField.text!, content: contentTextView.text, ratingStar: ratingLabel.text!, location: locationTextField.text)
+        
+        try! localRealm.write {
+            localRealm.add(task)
+        }
     
     }
     
