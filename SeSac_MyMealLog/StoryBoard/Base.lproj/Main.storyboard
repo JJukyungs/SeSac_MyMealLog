@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lg7-GM-7Vo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +41,7 @@
         <!--HomeViewController-->
         <scene sceneID="67Q-R8-FCp">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeViewController" id="fCB-t0-W3A" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="Home" referencedIdentifier="HomeViewController" id="fCB-t0-W3A" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="IqE-dN-7fY"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kj6-Rn-Bsp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
