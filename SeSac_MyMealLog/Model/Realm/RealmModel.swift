@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import UIKit
 
 class UserData: Object {
     @Persisted var restaurantTitle : String
@@ -14,6 +15,7 @@ class UserData: Object {
     @Persisted var contentText : String?
     @Persisted var ratingStar : String
     @Persisted var location : String?
+    
     
     // PK
     @Persisted(primaryKey: true) var _id: ObjectId

@@ -124,6 +124,7 @@
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MuR-Ee-Xxr">
                                                 <rect key="frame" x="60" y="396" width="294" height="30"/>
+                                                <color key="tintColor" name="mainRedColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="oo5-6Z-Af6"/>
                                                 </constraints>
@@ -133,6 +134,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-ao-gDn">
                                                 <rect key="frame" x="30" y="436" width="354" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="tintColor" name="mainRedColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="65v-M6-0XR"/>
                                                 </constraints>
@@ -154,13 +156,13 @@
                                                             <action selector="cameraButtonClicked:" destination="VSS-L7-AAW" eventType="touchUpInside" id="HN8-eI-uPV"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5sN-ZB-6az">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5sN-ZB-6az">
                                                         <rect key="frame" x="91" y="0.0" width="81" height="88.5"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fh7-Gc-bYh">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fh7-Gc-bYh">
                                                         <rect key="frame" x="182" y="0.0" width="81" height="88.5"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0k1-jb-VBa">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0k1-jb-VBa">
                                                         <rect key="frame" x="273" y="0.0" width="81" height="88.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -248,15 +250,16 @@
                         <outlet property="cameraButton" destination="lqy-nU-97N" id="u3y-5t-t0v"/>
                         <outlet property="contentTextView" destination="yaf-ao-gDn" id="vzB-8b-ZYx"/>
                         <outlet property="dateTextField" destination="MuR-Ee-Xxr" id="OW8-go-wOR"/>
-                        <outlet property="imaage3" destination="0k1-jb-VBa" id="5UY-3E-Lnd"/>
-                        <outlet property="image1" destination="5sN-ZB-6az" id="Dki-vD-smz"/>
-                        <outlet property="image2" destination="fh7-Gc-bYh" id="iCG-TD-Wsu"/>
+                        <outlet property="firstImageView" destination="5sN-ZB-6az" id="MwI-tX-1lv"/>
                         <outlet property="locationButton" destination="hox-RC-Ay3" id="gbq-hs-rlh"/>
                         <outlet property="locationTextField" destination="o9m-bD-74A" id="Wah-NQ-kUr"/>
                         <outlet property="mainTitleLabel" destination="aMy-I6-yu9" id="55p-ks-Fsd"/>
                         <outlet property="ratingLabel" destination="yWk-nF-pIU" id="sTj-G4-Lxb"/>
+                        <outlet property="ratingSlider" destination="r9U-ps-YhG" id="uel-Ro-FEA"/>
                         <outlet property="restaurantTextField" destination="IQI-Is-VKv" id="7yI-4G-Jps"/>
                         <outlet property="saveButton" destination="Kdc-JU-SvQ" id="3gV-FQ-VuO"/>
+                        <outlet property="secondImageView" destination="fh7-Gc-bYh" id="sVQ-SV-mIb"/>
+                        <outlet property="thridImageView" destination="0k1-jb-VBa" id="kpa-eE-xok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEw-mp-7Ux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

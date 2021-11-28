@@ -75,13 +75,53 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().nvTitleFont]
-        
-        
-        
-        
-        
     }
     
+    // 도큐먼트 폴더 경로에서 이미지 찾아 넣기
+    func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
+        
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        // 제약조건
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        // 최종 경로
+        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        if let directoryPath = path.first {
+            let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
+            
+            return UIImage(contentsOfFile: imageURL.path)
+        }
+        
+        return nil
+    }
+    
+    // 도큐먼트에서 이미지 파일 지우는 함수
+    func deleteImageFromDocumentDirectory(imageName: String) {
+        // 1. 이미지 저장하기 위한 경로 설정 : 명확하게 설정되어있음. 도큐먼트 폴더!!, FileManager(싱글턴 패턴)
+        
+        // for:   / in: 정보의 제한
+        // Desktop/jack/ios/folder/
+        guard let documentDirctory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        // 2. 이미지 파일 이름 & 최종 경로 설정  [매개변수로 파일 이름을 설정을 함]
+        // Desktop/jack/ios/folder/222.png
+        let imageURL = documentDirctory.appendingPathComponent(imageName)
+        
+      
+        
+        // 4. 이미지 저장: 동일한 경로에 이미지를 저장하게 될 경우, 덮어쓰기
+        // 4 - 1. 이미지 경로 여부 확인
+        if FileManager.default.fileExists(atPath: imageURL.path) {
+            
+            // 4 - 2. 기존 경로에 있는 임지 삭제
+            do {
+                try FileManager.default.removeItem(at: imageURL)
+                print("이미지 삭제")
+            } catch {
+                print("이미지를 삭제하지 못했습니다.")
+            }
+        }
+    }
 
 }
 
@@ -109,7 +149,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         // 나중에 분기 처리 해야함
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
         
-        cell.homeTableCellImageView.image = UIImage(named: "test")
+//        cell.homeTableCellImageView.image = UIImage(named: "test")
+        cell.homeTableCellImageView.image = loadImageFromDocumentDirectory(imageName: "\(row._id)_first.png") ?? UIImage()
         cell.homeTableCellStarImageView.image = UIImage(named: "star_full")
         
         cell.homeTableCellTitleLabel.text = row.restaurantTitle
