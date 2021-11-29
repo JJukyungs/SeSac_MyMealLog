@@ -9,6 +9,7 @@ import UIKit
 
 class SelectViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var selectView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var changeButton: UIButton!
@@ -35,6 +36,7 @@ class SelectViewController: UIViewController, UIScrollViewDelegate {
         addContentScrollView()
         setPageControl()
         setUpUI()
+
     }
     
     func setUpUI() {
@@ -48,15 +50,18 @@ class SelectViewController: UIViewController, UIScrollViewDelegate {
         locationLabel.text = selectLocation
         dateLabel.text = selectDate
         contentLabel.text = selectContent
+        contentLabel.layer.borderWidth = 1
+        contentLabel.layer.borderColor = UIColor.mainRedColor?.cgColor
         
     }
     
     func addContentScrollView() {
         for i in 0..<images.count {
             let imageView = UIImageView()
-            let xPos = self.view.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: xPos, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
-            imageView.contentMode = .scaleAspectFill
+            let xPos = self.selectView.bounds.width * CGFloat(i)
+            print(xPos)
+            imageView.frame = CGRect(x: xPos, y: 0, width: self.selectView.bounds.width, height: scrollView.bounds.height)
+            imageView.contentMode = .scaleToFill
             imageView.image = loadImageFromDocumentDirectory(imageName: images[i]) ?? UIImage(named: "titleIcon")
             scrollView.addSubview(imageView)
             scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
