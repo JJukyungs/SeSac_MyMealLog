@@ -150,7 +150,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
         
 //        cell.homeTableCellImageView.image = UIImage(named: "test")
-        cell.homeTableCellImageView.image = loadImageFromDocumentDirectory(imageName: "\(row._id)_first.png") ?? UIImage()
+        cell.homeTableCellImageView.image = loadImageFromDocumentDirectory(imageName: "\(row._id)_first.png") ?? UIImage(named: "titleIcon")
         cell.homeTableCellStarImageView.image = UIImage(named: "star_full")
         
         cell.homeTableCellTitleLabel.text = row.restaurantTitle
@@ -162,6 +162,39 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let row = tasks[indexPath.row]
+        print("foodImagecount : \(row.foodImageCount)")
+        
+        
+        let sb = UIStoryboard.init(name: "Select", bundle: nil)
+        
+        let vc = sb.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
+        print("SelectViewController 창")
+        
+        switch row.foodImageCount - 1 {
+        case 0:
+            vc.images.append("\(row._id)_first.png")
+        case 1:
+            vc.images.append("\(row._id)_first.png")
+            vc.images.append("\(row._id)_second.png")
+        default:
+            // 2
+            vc.images.append("\(row._id)_first.png")
+            vc.images.append("\(row._id)_second.png")
+            vc.images.append("\(row._id)_thrid.png")
+        }
+       
+        vc.selectTitle = row.restaurantTitle
+        vc.selectRating = row.ratingStar
+        vc.selectDate = row.date
+        vc.selectContent = row.contentText ?? ""
+        vc.selectLocation = row.location ?? ""
+        
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
 
 }
 
@@ -181,7 +214,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeHeaderCollectionViewCell", for: indexPath) as? HomeHeaderCollectionViewCell else { return UICollectionViewCell() }
 
-        cell.headerImageView.image = UIImage(named: "test")
+        cell.headerImageView.image = loadImageFromDocumentDirectory(imageName: "\(item._id)_first.png") ?? UIImage(named: "titleIcon")
         cell.headerStarImageView.image = UIImage(named: "star_full")
         
         cell.headerTitleLabel.text = item.restaurantTitle

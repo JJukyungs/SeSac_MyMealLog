@@ -88,12 +88,12 @@
                                                     <action selector="onDragStarSlider:" destination="VSS-L7-AAW" eventType="valueChanged" id="HfX-fm-Uyk"/>
                                                 </connections>
                                             </slider>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="식당을 적어주세요 ex) 땅코숯불구이" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQI-Is-VKv" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="30" y="236" width="354" height="50"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="식당을 적어주세요 (필수)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQI-Is-VKv" customClass="AkiraTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="30" y="241" width="354" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="XaI-31-1zS"/>
+                                                    <constraint firstAttribute="height" constant="60" id="XaI-31-1zS"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ONEMobileOTFLight" family="ONE Mobile OTF" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="ONEMobileOTFLight" family="ONE Mobile OTF" pointSize="24"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -102,11 +102,11 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="위치를 입력하세요 ex) 왕십리" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o9m-bD-74A" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="30" y="296" width="354" height="50"/>
+                                                <rect key="frame" x="30" y="321" width="354" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="JPB-Ub-VLG"/>
+                                                    <constraint firstAttribute="height" constant="60" id="JPB-Ub-VLG"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ONEMobileOTFLight" family="ONE Mobile OTF" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="ONEMobileOTFLight" family="ONE Mobile OTF" pointSize="24"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -114,25 +114,22 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hox-RC-Ay3">
-                                                <rect key="frame" x="100" y="356" width="214" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="2FA-Uh-gTc"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="지도에서 위치 찾기"/>
-                                            </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MuR-Ee-Xxr">
-                                                <rect key="frame" x="60" y="396" width="294" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜를 입력해주세요 (필수)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MuR-Ee-Xxr" customClass="AkiraTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="30" y="401" width="354" height="60"/>
                                                 <color key="tintColor" name="mainRedColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="oo5-6Z-Af6"/>
+                                                    <constraint firstAttribute="height" constant="60" id="oo5-6Z-Af6"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ONEMobileOTFLight" family="ONE Mobile OTF" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="ONEMobileOTFLight" family="ONE Mobile OTF" pointSize="24"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="mainRedColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창내용 입력창 내용 입력창" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-ao-gDn">
-                                                <rect key="frame" x="30" y="436" width="354" height="100"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내용을 입력해주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-ao-gDn">
+                                                <rect key="frame" x="30" y="471" width="354" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="tintColor" name="mainRedColor"/>
                                                 <constraints>
@@ -143,7 +140,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sQj-b1-Euy">
-                                                <rect key="frame" x="30" y="546" width="354" height="88.5"/>
+                                                <rect key="frame" x="30" y="581" width="354" height="88.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqy-nU-97N">
                                                         <rect key="frame" x="0.0" y="0.0" width="81" height="88.5"/>
@@ -156,10 +153,10 @@
                                                             <action selector="cameraButtonClicked:" destination="VSS-L7-AAW" eventType="touchUpInside" id="HN8-eI-uPV"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5sN-ZB-6az">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5sN-ZB-6az">
                                                         <rect key="frame" x="91" y="0.0" width="81" height="88.5"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fh7-Gc-bYh">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fh7-Gc-bYh">
                                                         <rect key="frame" x="182" y="0.0" width="81" height="88.5"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0k1-jb-VBa">
@@ -171,7 +168,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdc-JU-SvQ">
-                                                <rect key="frame" x="100" y="654.5" width="214" height="40"/>
+                                                <rect key="frame" x="100" y="689.5" width="214" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="cqI-kd-q6T"/>
                                                 </constraints>
@@ -185,18 +182,17 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="IQI-Is-VKv" firstAttribute="top" secondItem="r9U-ps-YhG" secondAttribute="bottom" constant="15" id="17l-5j-Wkx"/>
+                                            <constraint firstItem="IQI-Is-VKv" firstAttribute="top" secondItem="r9U-ps-YhG" secondAttribute="bottom" constant="20" id="17l-5j-Wkx"/>
                                             <constraint firstItem="IQI-Is-VKv" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="30" id="32o-DU-kGP"/>
                                             <constraint firstItem="Kdc-JU-SvQ" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="100" id="8GJ-bC-qf8"/>
                                             <constraint firstItem="Kdc-JU-SvQ" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="9HB-Hv-1jg"/>
                                             <constraint firstAttribute="trailing" secondItem="IQI-Is-VKv" secondAttribute="trailing" constant="30" id="Az9-bz-QqC"/>
                                             <constraint firstItem="aMy-I6-yu9" firstAttribute="top" secondItem="YrV-7r-fvN" secondAttribute="top" constant="10" id="BBz-9n-ICu"/>
                                             <constraint firstItem="xFa-Lu-PDu" firstAttribute="top" secondItem="yWk-nF-pIU" secondAttribute="bottom" constant="5" id="Bcw-Wr-9AI"/>
+                                            <constraint firstItem="MuR-Ee-Xxr" firstAttribute="top" secondItem="o9m-bD-74A" secondAttribute="bottom" constant="20" id="Cat-us-Cm5"/>
                                             <constraint firstItem="Kdc-JU-SvQ" firstAttribute="top" secondItem="sQj-b1-Euy" secondAttribute="bottom" constant="20" id="Did-61-Rx4"/>
                                             <constraint firstItem="aMy-I6-yu9" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="30" id="Dl3-k6-Jsw"/>
                                             <constraint firstAttribute="trailing" secondItem="o9m-bD-74A" secondAttribute="trailing" constant="30" id="EJx-KS-4Qk"/>
-                                            <constraint firstAttribute="trailing" secondItem="hox-RC-Ay3" secondAttribute="trailing" constant="100" id="GfE-LM-uy6"/>
-                                            <constraint firstItem="hox-RC-Ay3" firstAttribute="top" secondItem="o9m-bD-74A" secondAttribute="bottom" constant="10" id="H1d-07-aZD"/>
                                             <constraint firstItem="xFa-Lu-PDu" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="HZ0-aL-OYw"/>
                                             <constraint firstAttribute="trailing" secondItem="r9U-ps-YhG" secondAttribute="trailing" constant="30" id="InM-zK-IGx"/>
                                             <constraint firstItem="MuR-Ee-Xxr" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="KGD-qn-hGj"/>
@@ -204,25 +200,22 @@
                                             <constraint firstItem="yWk-nF-pIU" firstAttribute="top" secondItem="aMy-I6-yu9" secondAttribute="bottom" constant="5" id="LTK-YO-YF9"/>
                                             <constraint firstItem="yaf-ao-gDn" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="30" id="OEe-zW-pwr"/>
                                             <constraint firstItem="sQj-b1-Euy" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="30" id="TWL-7J-snU"/>
-                                            <constraint firstItem="hox-RC-Ay3" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="UEQ-eL-t6d"/>
-                                            <constraint firstItem="hox-RC-Ay3" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="100" id="VXo-Zc-xQO"/>
                                             <constraint firstItem="IQI-Is-VKv" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="WIK-ue-gs4"/>
                                             <constraint firstAttribute="trailing" secondItem="aMy-I6-yu9" secondAttribute="trailing" constant="30" id="XQz-Nq-4XE"/>
                                             <constraint firstAttribute="height" constant="850" id="Y3v-hQ-GXD"/>
                                             <constraint firstItem="yaf-ao-gDn" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="Zgm-Vc-hm7"/>
                                             <constraint firstItem="yWk-nF-pIU" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="aUD-e1-Ye9"/>
                                             <constraint firstAttribute="trailing" secondItem="sQj-b1-Euy" secondAttribute="trailing" constant="30" id="dMj-rM-fJl"/>
-                                            <constraint firstItem="MuR-Ee-Xxr" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="60" id="dm4-VW-HzO"/>
+                                            <constraint firstItem="MuR-Ee-Xxr" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="30" id="dm4-VW-HzO"/>
                                             <constraint firstItem="o9m-bD-74A" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="e2O-TV-qge"/>
                                             <constraint firstItem="o9m-bD-74A" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="30" id="eiB-K9-2Am"/>
-                                            <constraint firstItem="MuR-Ee-Xxr" firstAttribute="top" secondItem="hox-RC-Ay3" secondAttribute="bottom" constant="10" id="f88-6A-ZJ0"/>
                                             <constraint firstItem="r9U-ps-YhG" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="idV-0N-82q"/>
                                             <constraint firstItem="yaf-ao-gDn" firstAttribute="top" secondItem="MuR-Ee-Xxr" secondAttribute="bottom" constant="10" id="jEO-b4-Vd2"/>
-                                            <constraint firstItem="o9m-bD-74A" firstAttribute="top" secondItem="IQI-Is-VKv" secondAttribute="bottom" constant="10" id="kMi-qd-9tu"/>
+                                            <constraint firstItem="o9m-bD-74A" firstAttribute="top" secondItem="IQI-Is-VKv" secondAttribute="bottom" constant="20" id="kMi-qd-9tu"/>
                                             <constraint firstItem="r9U-ps-YhG" firstAttribute="top" secondItem="xFa-Lu-PDu" secondAttribute="bottom" constant="5" id="rfF-hl-C56"/>
                                             <constraint firstItem="r9U-ps-YhG" firstAttribute="leading" secondItem="YrV-7r-fvN" secondAttribute="leading" constant="30" id="u42-ex-sZR"/>
                                             <constraint firstAttribute="trailing" secondItem="Kdc-JU-SvQ" secondAttribute="trailing" constant="100" id="wfd-XA-471"/>
-                                            <constraint firstAttribute="trailing" secondItem="MuR-Ee-Xxr" secondAttribute="trailing" constant="60" id="x5X-5D-Wcg"/>
+                                            <constraint firstAttribute="trailing" secondItem="MuR-Ee-Xxr" secondAttribute="trailing" constant="30" id="x5X-5D-Wcg"/>
                                             <constraint firstItem="sQj-b1-Euy" firstAttribute="centerX" secondItem="YrV-7r-fvN" secondAttribute="centerX" id="z0f-Uc-Msf"/>
                                             <constraint firstAttribute="trailing" secondItem="yaf-ao-gDn" secondAttribute="trailing" constant="30" id="zHV-tZ-Ef2"/>
                                         </constraints>
@@ -251,7 +244,6 @@
                         <outlet property="contentTextView" destination="yaf-ao-gDn" id="vzB-8b-ZYx"/>
                         <outlet property="dateTextField" destination="MuR-Ee-Xxr" id="OW8-go-wOR"/>
                         <outlet property="firstImageView" destination="5sN-ZB-6az" id="MwI-tX-1lv"/>
-                        <outlet property="locationButton" destination="hox-RC-Ay3" id="gbq-hs-rlh"/>
                         <outlet property="locationTextField" destination="o9m-bD-74A" id="Wah-NQ-kUr"/>
                         <outlet property="mainTitleLabel" destination="aMy-I6-yu9" id="55p-ks-Fsd"/>
                         <outlet property="ratingLabel" destination="yWk-nF-pIU" id="sTj-G4-Lxb"/>
@@ -269,10 +261,10 @@
     </scenes>
     <designables>
         <designable name="IQI-Is-VKv">
-            <size key="intrinsicContentSize" width="306" height="23.5"/>
+            <size key="intrinsicContentSize" width="255" height="28"/>
         </designable>
         <designable name="o9m-bD-74A">
-            <size key="intrinsicContentSize" width="250.5" height="23.5"/>
+            <size key="intrinsicContentSize" width="300.5" height="28"/>
         </designable>
     </designables>
     <resources>

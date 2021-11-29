@@ -44,6 +44,9 @@
 		1EB7A71F274F71C200ECC25C /* CustomSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A71E274F71C200ECC25C /* CustomSectionHeader.xib */; };
 		1EB7A721274F730400ECC25C /* CustomSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A720274F730400ECC25C /* CustomSectionHeaderView.swift */; };
 		1EB7A724274F951000ECC25C /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 1EB7A723274F951000ECC25C /* TextFieldEffects */; };
+		1EB7A72727543A3000ECC25C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1EB7A72627543A3000ECC25C /* IQKeyboardManagerSwift */; };
+		1EB7A729275511E900ECC25C /* Select.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A728275511E900ECC25C /* Select.storyboard */; };
+		1EB7A72B2755149000ECC25C /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A72A2755149000ECC25C /* SelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +86,8 @@
 		1EB7A71C274EA34900ECC25C /* SliderStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStar.swift; sourceTree = "<group>"; };
 		1EB7A71E274F71C200ECC25C /* CustomSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSectionHeader.xib; sourceTree = "<group>"; };
 		1EB7A720274F730400ECC25C /* CustomSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionHeaderView.swift; sourceTree = "<group>"; };
+		1EB7A728275511E900ECC25C /* Select.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Select.storyboard; sourceTree = "<group>"; };
+		1EB7A72A2755149000ECC25C /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EB7A724274F951000ECC25C /* TextFieldEffects in Frameworks */,
+				1EB7A72727543A3000ECC25C /* IQKeyboardManagerSwift in Frameworks */,
 				1EB7A702274E3C4A00ECC25C /* RealmSwift in Frameworks */,
 				1EB7A700274E3C4A00ECC25C /* Realm in Frameworks */,
 			);
@@ -162,6 +168,7 @@
 				1EB7A6E12747A2ED00ECC25C /* MyPageViewController.swift */,
 				1EB7A6E52748126D00ECC25C /* ListViewController.swift */,
 				1EB7A71C274EA34900ECC25C /* SliderStar.swift */,
+				1EB7A72A2755149000ECC25C /* SelectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 				1EB7A6F6274C23FC00ECC25C /* SearchTableViewCell.xib */,
 				1EB7A6DF2747A2C300ECC25C /* MyPage.storyboard */,
 				1EB7A71E274F71C200ECC25C /* CustomSectionHeader.xib */,
+				1EB7A728275511E900ECC25C /* Select.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -241,6 +249,7 @@
 				1EB7A6FF274E3C4A00ECC25C /* Realm */,
 				1EB7A701274E3C4A00ECC25C /* RealmSwift */,
 				1EB7A723274F951000ECC25C /* TextFieldEffects */,
+				1EB7A72627543A3000ECC25C /* IQKeyboardManagerSwift */,
 			);
 			productName = SeSac_MyMealLog;
 			productReference = 1EB7A6982744E9A700ECC25C /* SeSac_MyMealLog.app */;
@@ -273,6 +282,7 @@
 			packageReferences = (
 				1EB7A6FE274E3C4A00ECC25C /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				1EB7A722274F951000ECC25C /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+				1EB7A72527543A3000ECC25C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 1EB7A6992744E9A700ECC25C /* Products */;
 			projectDirPath = "";
@@ -304,6 +314,7 @@
 				1EB7A6A32744E9A700ECC25C /* Main.storyboard in Resources */,
 				1EB7A715274E97E300ECC25C /* ONE Mobile POP OTF.otf in Resources */,
 				1EB7A6F0274B354D00ECC25C /* HomeTableViewCell.xib in Resources */,
+				1EB7A729275511E900ECC25C /* Select.storyboard in Resources */,
 				1EB7A6D827479D0B00ECC25C /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +342,7 @@
 				1EB7A6F7274C23FC00ECC25C /* SearchTableViewCell.swift in Sources */,
 				1EB7A6FB274D846300ECC25C /* UIColor+Extension.swift in Sources */,
 				1EB7A6E62748126D00ECC25C /* ListViewController.swift in Sources */,
+				1EB7A72B2755149000ECC25C /* SelectViewController.swift in Sources */,
 				1EB7A6DE27479DA700ECC25C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,11 +495,15 @@
 				DEVELOPMENT_TEAM = 3229MQALFH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSac_MyMealLog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "내 뱃속 기록";
+				INFOPLIST_KEY_NSCameraUsageDescription = "저희 앱은 사용자의 카메라를 사용해 음식 사진을 찍을 수 있도록 접근할려고 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "저희 앱은 사용자의 음식 사진을 올릴 수 있도록 앨범에 접근할려고 합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -512,11 +528,15 @@
 				DEVELOPMENT_TEAM = 3229MQALFH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSac_MyMealLog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "내 뱃속 기록";
+				INFOPLIST_KEY_NSCameraUsageDescription = "저희 앱은 사용자의 카메라를 사용해 음식 사진을 찍을 수 있도록 접근할려고 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "저희 앱은 사용자의 음식 사진을 올릴 수 있도록 앨범에 접근할려고 합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -571,6 +591,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		1EB7A72527543A3000ECC25C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -588,6 +616,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1EB7A722274F951000ECC25C /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
 			productName = TextFieldEffects;
+		};
+		1EB7A72627543A3000ECC25C /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EB7A72527543A3000ECC25C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

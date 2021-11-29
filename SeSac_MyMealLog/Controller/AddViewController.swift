@@ -43,7 +43,6 @@ class AddViewController: UIViewController {
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Realm 경로 찍기
@@ -71,8 +70,9 @@ class AddViewController: UIViewController {
         saveButton.clipsToBounds = true
         saveButton.layer.cornerRadius = 10
         
-        dateTextField.textAlignment = .center
         ratingLabel.text = "0"
+        contentTextView.layer.borderWidth = 1.0
+        contentTextView.layer.borderColor = UIColor.mainRedColor?.cgColor
     }
 
     // DatePicker
@@ -108,7 +108,7 @@ class AddViewController: UIViewController {
     // realm 데이터 삽입
     func saveRealmData() {
         
-        let task = UserData(restaurantTitle: restaurantTextField.text!, date: dateTextField.text!, content: contentTextView.text, ratingStar: ratingLabel.text!, location: locationTextField.text)
+        let task = UserData(restaurantTitle: restaurantTextField.text!, date: dateTextField.text!, content: contentTextView.text, ratingStar: ratingLabel.text!, location: locationTextField.text, foodImageCount: foodImages.count)
         
         try! localRealm.write {
             localRealm.add(task)
@@ -262,102 +262,57 @@ class AddViewController: UIViewController {
 
 extension AddViewController: PHPickerViewControllerDelegate {
     
-        
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        
-        foodImages.removeAll()
-        
-        picker.dismiss(animated: true)
+            
+            foodImages.removeAll()
+            
+            picker.dismiss(animated: true)
 
-       
-        
-        let group = DispatchGroup()
-        
-        results.forEach { Result in
-            group.enter()
-            Result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] reading, error in
-                defer {
-                    group.leave()
-                }
-                guard let image = reading as? UIImage, error == nil else {
-                    return
-                }
-                self?.foodImages.append(image)
-            }
-        }
-        group.notify(queue: .main) { [self] in
-            print(self.foodImages.count)
+           
             
-        
+            let group = DispatchGroup()
             
-        
-            print("foodImages :\(foodImages)")
-            if !foodImages.isEmpty {
-                if foodImages.count == 1{
-                    firstImageView.image = foodImages[0]
-                    print("foodImages[0] : \(foodImages[0])")
-                } else if foodImages.count == 2 {
-                    firstImageView.image = foodImages[0]
-                    secondImageView.image = foodImages[1]
-                    print("foodImages[0],[1] : \(foodImages[0]) \(foodImages[1])")
-                } else {
-                    firstImageView.image = foodImages[0]
-                    secondImageView.image = foodImages[1]
-                    thridImageView.image = foodImages[2]
-                    print("foodImages[0],[1],[2] : \(foodImages[0]) \(foodImages[1]) \(foodImages[2])")
-                }
-            }
-        }
-        
-    
-       
-        
-//        var imagTagN = 1001
-//        for food in foodImages {
-//            if let foodImage = self.view.viewWithTag(imagTagN) as? UIImageView {
-//                        foodImage.image = food
-//                        imagTagN = imagTagN + 1
-//
-//            }
-//        }
-   
-      
-        
-//        let itemProvider = results.first?.itemProvider
-////        let itemProvdier = results.
-//        print("PHPicker : \(itemProvider)")
-//        if let itemProvider = itemProvider,
-//           itemProvider.canLoadObject(ofClass: UIImage.self) {
-//            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-//                DispatchQueue.main.async {
-//                    self.image1.image = image as? UIImage
-//
-//                }
-//            }
-//        } else {
-//            print("picker 에러")
-//        }
-         
-        
-//        ikyle.me/blog/2020/phpickerviewcontroller
-/*
-        print(picker)
-        print(results)
-        
-        for result in results {
-              result.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { (object, error) in
-                  print(object)
-                  print(error)
-                 if let image = object as? UIImage {
-                    DispatchQueue.main.async {
-                       // Use UIImage
-                       print("Selected image: \(image)")
+            results.forEach { Result in
+                group.enter()
+                Result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] reading, error in
+                    defer {
+                        group.leave()
                     }
-                 }
-              })
-           }
- */
-    }
+                    guard let image = reading as? UIImage, error == nil else {
+                        return
+                    }
+                    self?.foodImages.append(image)
+                }
+            }
+            group.notify(queue: .main) { [self] in
+                print(self.foodImages.count)
+                
+            
+                
+            
+                print("foodImages :\(foodImages)")
+                if !foodImages.isEmpty {
+                    if foodImages.count == 1{
+                        firstImageView.image = foodImages[0]
+                        print("foodImages[0] : \(foodImages[0])")
+                    } else if foodImages.count == 2 {
+                        firstImageView.image = foodImages[0]
+                        secondImageView.image = foodImages[1]
+                        print("foodImages[0],[1] : \(foodImages[0]) \(foodImages[1])")
+                    } else {
+                        firstImageView.image = foodImages[0]
+                        secondImageView.image = foodImages[1]
+                        thridImageView.image = foodImages[2]
+                        print("foodImages[0],[1],[2] : \(foodImages[0]) \(foodImages[1]) \(foodImages[2])")
+                    }
+                }
+            }
+            
+        
+           
+       
+        }
+    
     
 
     
