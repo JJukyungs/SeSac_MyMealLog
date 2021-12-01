@@ -47,6 +47,7 @@
 		1EB7A72727543A3000ECC25C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1EB7A72627543A3000ECC25C /* IQKeyboardManagerSwift */; };
 		1EB7A729275511E900ECC25C /* Select.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A728275511E900ECC25C /* Select.storyboard */; };
 		1EB7A72B2755149000ECC25C /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A72A2755149000ECC25C /* SelectViewController.swift */; };
+		1EB7A72D27569AAC00ECC25C /* HighlightLabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A72C27569AAC00ECC25C /* HighlightLabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		1EB7A720274F730400ECC25C /* CustomSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionHeaderView.swift; sourceTree = "<group>"; };
 		1EB7A728275511E900ECC25C /* Select.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Select.storyboard; sourceTree = "<group>"; };
 		1EB7A72A2755149000ECC25C /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		1EB7A72C27569AAC00ECC25C /* HighlightLabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HighlightLabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			children = (
 				1EB7A6FA274D846300ECC25C /* UIColor+Extension.swift */,
 				1EB7A71A274E9C7700ECC25C /* UIFont+Extension.swift */,
+				1EB7A72C27569AAC00ECC25C /* HighlightLabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				1EB7A704274E3CA900ECC25C /* RealmModel.swift in Sources */,
 				1EB7A6A02744E9A700ECC25C /* ViewController.swift in Sources */,
 				1EB7A71B274E9C7700ECC25C /* UIFont+Extension.swift in Sources */,
+				1EB7A72D27569AAC00ECC25C /* HighlightLabel+Extension.swift in Sources */,
 				1EB7A6F3274C032200ECC25C /* HomeHeaderCollectionViewCell.swift in Sources */,
 				1EB7A6E22747A2ED00ECC25C /* MyPageViewController.swift in Sources */,
 				1EB7A6E92749527700ECC25C /* TagCollectionViewCell.swift in Sources */,

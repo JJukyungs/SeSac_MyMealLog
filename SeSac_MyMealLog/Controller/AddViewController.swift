@@ -71,7 +71,7 @@ class AddViewController: UIViewController {
         saveButton.layer.cornerRadius = 10
         
         ratingLabel.text = "0"
-        contentTextView.layer.borderWidth = 1.0
+        contentTextView.layer.borderWidth = 2.0
         contentTextView.layer.borderColor = UIColor.mainRedColor?.cgColor
     }
 
@@ -197,22 +197,32 @@ class AddViewController: UIViewController {
     // 저장 버튼 클릭시 입력받은 데이터가 Realm 으로 넘어감
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "저장하시겠습니까?", message: nil, preferredStyle: UIAlertController.Style.alert)
-        
-        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
-            // alert 창에서
-            self.saveRealmData()
-            self.initAddView()
+        if restaurantTextField.text == "" && dateTextField.text == "" {
+            let errorAlert = UIAlertController(title: "작성하지 않은 부분이 있습니다.", message: "필수 공간을 채워주세요", preferredStyle: .alert)
+            let returnAlert = UIAlertAction(title: "확인", style: .default, handler: nil)
+            errorAlert.addAction(returnAlert)
+            self.present(errorAlert, animated: false)
+        } else if restaurantTextField.text != "" && dateTextField.text != "" {
+            let alert = UIAlertController(title: "저장하시겠습니까?", message: nil, preferredStyle: UIAlertController.Style.alert)
             
+            let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                // alert 창에서
+                self.saveRealmData()
+                self.initAddView()
+                
+                let saveAlert = UIAlertController(title: "저장되었습니다.", message: "홈 화면에서 확인해보세요!", preferredStyle: .alert)
+                let saveOkAlert = UIAlertAction(title: "확인", style: .default, handler: nil)
+                saveAlert.addAction(saveOkAlert)
+                self.present(saveAlert, animated: false)
+            }
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+            
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: false)
         }
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
-        
-        self.present(alert, animated: false)
-        
     }
     
     

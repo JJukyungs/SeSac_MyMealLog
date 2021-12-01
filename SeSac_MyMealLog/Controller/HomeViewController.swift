@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(true)
         tasks = localRealm.objects(UserData.self)
         homeTableView.reloadData()
+        homeTableHeaderCollectionView.reloadData()
     }
     
 
@@ -205,7 +206,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 최신 거 5개만 받아올수 있게
-        return tasks.count
+        if tasks.count <= 5 {
+            return tasks.count
+        } else {
+            return 5
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
