@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 // UIScrollViewDelegate
 class SelectViewController: UIViewController {
@@ -27,74 +28,107 @@ class SelectViewController: UIViewController {
     var images = [String]()
     var imageViews = [UIImageView]()
     
-    var selectTitle: String = ""
-    var selectRating: String = ""
-    var selectLocation: String = ""
-    var selectDate: String = ""
-    var selectContent: String = ""
+    let localRealm = try! Realm()
+    var tasks: Results<UserData>! {
+        didSet {
+            setUpUI()
+        }
+    }
     
+    var tasksRow: Int = 0
+    
+    var searchSet: Bool = false
+    
+    var searchTasks: UserData?
+    
+//    var selectTitle: String = ""
+//    var selectRating: String = ""
+//    var selectLocation: String = ""
+//    var selectDate: String = ""
+//    var selectContent: String = ""
+//
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tasks = localRealm.objects(UserData.self)
         setUpUI()
+        print("SelectView : ViewDidLoad")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setUpUI()
+        print("SelectView : ViewWillAppear")
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("SelectView : viewDidAppear")
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("SelectView : viewWillDisappear")
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("SelectView : viewDidDisappear")
 
     }
     
     func setUpUI() {
+        if searchSet == false {
+            changeButton.clipsToBounds = true
+            changeButton.layer.cornerRadius = 10
+            closeButton.clipsToBounds = true
+            closeButton.layer.cornerRadius = closeButton.layer.frame.size.width / 2
+    //        titleLabel.text = selectTitle
+            titleLabel.text = tasks[tasksRow].restaurantTitle
+            ratingLabel.text = tasks[tasksRow].ratingStar
+            locationLabel.text = tasks[tasksRow].location
+            dateLabel.text = tasks[tasksRow].date
+    //        contentLabel.text = selectContent
+            contentLabel.text = tasks[tasksRow].contentText
+            contentLabel.layer.borderWidth = 1
+            contentLabel.layer.borderColor = UIColor.mainRedColor?.cgColor
+            
+            listCollectionView.delegate = self
+            listCollectionView.dataSource = self
+            
+            pageControl.numberOfPages = images.count
+            pageControl.currentPage = 0
+            
+            pageControl.currentPageIndicatorTintColor = UIColor.mainRedColor
         
-        changeButton.clipsToBounds = true
-        changeButton.layer.cornerRadius = 10
-        closeButton.clipsToBounds = true
-        closeButton.layer.cornerRadius = closeButton.layer.frame.size.width / 2
-        titleLabel.text = selectTitle
-        ratingLabel.text = selectRating
-        locationLabel.text = selectLocation
-        dateLabel.text = selectDate
-        contentLabel.text = selectContent
-        contentLabel.layer.borderWidth = 1
-        contentLabel.layer.borderColor = UIColor.mainRedColor?.cgColor
-        
-        listCollectionView.delegate = self
-        listCollectionView.dataSource = self
-        
-        pageControl.numberOfPages = images.count
-        pageControl.currentPage = 0
-        
-        pageControl.currentPageIndicatorTintColor = UIColor.mainRedColor
+        } else {
+            changeButton.clipsToBounds = true
+            changeButton.layer.cornerRadius = 10
+            closeButton.clipsToBounds = true
+            closeButton.layer.cornerRadius = closeButton.layer.frame.size.width / 2
+    //        titleLabel.text = selectTitle
+            titleLabel.text = searchTasks?.restaurantTitle
+            ratingLabel.text = searchTasks?.ratingStar
+            locationLabel.text = searchTasks?.location
+            dateLabel.text = searchTasks?.date
+    //        contentLabel.text = selectContent
+            contentLabel.text = searchTasks?.contentText
+            contentLabel.layer.borderWidth = 1
+            contentLabel.layer.borderColor = UIColor.mainRedColor?.cgColor
+            
+            listCollectionView.delegate = self
+            listCollectionView.dataSource = self
+            
+            pageControl.numberOfPages = images.count
+            pageControl.currentPage = 0
+            
+            pageControl.currentPageIndicatorTintColor = UIColor.mainRedColor
+        }
     }
     
-//    func addContentScrollView() {
-//        for i in 0..<images.count {
-//            let imageView = UIImageView()
-//            let xPos = scrollView.bounds.width * CGFloat(i)
-//            print(xPos)
-////            imageView.translatesAutoresizingMaskIntoConstraints = false
-//            imageView.frame = CGRect(x: xPos, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
-//            imageView.contentMode = .scaleToFill
-//            imageView.image = loadImageFromDocumentDirectory(imageName: images[i]) ?? UIImage(named: "titleIcon")
-//
-//            scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
-//            scrollView.contentSize.height = scrollView.frame.height
-//
-//            scrollView.addSubview(imageView)
-//        }
-//    }
-    
-    // PageControll
-    // 이미지가 맞게 안들어간다
-    
-//    func setPageControl() {
-//        pageControl.numberOfPages = images.count
-//    }
-//
-//    func setPageControlSelectedPage(currentPage: Int) {
-//        pageControl.currentPage = currentPage
-//    }
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let value = scrollView.contentOffset.x / scrollView.frame.size.width
-//        setPageControlSelectedPage(currentPage: Int(round(value)))
-//    }
+
     
     // 도큐먼트에서 이미지 불러오기
     func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
@@ -122,8 +156,24 @@ class SelectViewController: UIViewController {
     
     
     @IBAction func changButtonClicked(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
         
+        // Present 방식
+        let sb = UIStoryboard.init(name: "Add", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+
+        vc.addViewSatus = false
+        if searchSet == false{
+            vc.tasksRow = tasksRow
+        } else {
+            vc.searchSet = true
+            vc.searchTasks = searchTasks
+        }
+        
+        vc.images = images
+        vc.modalPresentationStyle = .fullScreen
+
+        self.present(vc, animated: false, completion: nil)
         
     }
     
@@ -137,7 +187,7 @@ extension SelectViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let width = scrollView.bounds.size.width
         let x = scrollView.contentOffset.x + (width / 2.0)
-        print(x)
+        
         let newPage = Int(x / width)
         if pageControl.currentPage != newPage {
             pageControl.currentPage = newPage
@@ -157,6 +207,7 @@ extension SelectViewController: UICollectionViewDataSource {
             }
 //            let img = UIImage(named: images[indexPath.item])
         //cell.imgView.image = UIImage(named: "test")
+        
         cell.imgView.image = loadImageFromDocumentDirectory(imageName: images[indexPath.item]) ?? UIImage(named: "titleIcon")
         print("indexPath.item : \(indexPath.item)")
         print(images)

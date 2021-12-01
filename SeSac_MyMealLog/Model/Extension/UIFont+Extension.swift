@@ -12,6 +12,14 @@ extension UIFont {
     var nvTitleFont: UIFont {
         return UIFont(name: "ONE Mobile POP OTF", size: 40)!
     }
+    
+    var smallNvTitleFont: UIFont {
+        return UIFont(name: "ONE Mobile POP OTF", size: 22)!
+    }
+    var headerTitleFont: UIFont {
+        return UIFont(name: "ONE Mobile Title OTF", size: 22)!
+    }
+    
     var sectiontitleFont: UIFont {
         return UIFont(name: "ONE Mobile Title OTF", size: 28)!
     }

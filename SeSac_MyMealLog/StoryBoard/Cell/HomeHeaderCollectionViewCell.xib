@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="HomeHeaderCollectionViewCell" id="gTV-IL-0wX" customClass="HomeHeaderCollectionViewCell" customModule="SeSac_MyMealLog" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="180" height="160"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                <rect key="frame" x="0.0" y="0.0" width="180" height="160"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="513-mx-hdK">
-                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="160"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GNy-Xv-MoB">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
@@ -27,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S1S-0s-dfK">
-                                <rect key="frame" x="131" y="140" width="44" height="22"/>
+                                <rect key="frame" x="126" y="127" width="44" height="22"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="idb-8H-6Tw">
                                         <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
@@ -47,9 +48,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="evX-xk-vWV"/>
+                                    <constraint firstAttribute="width" constant="44" id="y59-Qf-92s"/>
+                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식당이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNq-qm-cZm">
-                                <rect key="frame" x="2" y="130" width="127" height="33"/>
+                                <rect key="frame" x="2" y="123" width="121" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="vek-TM-jY7"/>
                                 </constraints>
@@ -60,14 +65,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="S1S-0s-dfK" firstAttribute="top" secondItem="GNy-Xv-MoB" secondAttribute="bottom" constant="20" id="7mr-zK-aTy"/>
+                            <constraint firstItem="S1S-0s-dfK" firstAttribute="leading" secondItem="MNq-qm-cZm" secondAttribute="trailing" constant="3" id="3In-u5-841"/>
+                            <constraint firstItem="S1S-0s-dfK" firstAttribute="top" secondItem="GNy-Xv-MoB" secondAttribute="bottom" constant="7" id="9zP-CW-xX3"/>
+                            <constraint firstAttribute="trailing" secondItem="S1S-0s-dfK" secondAttribute="trailing" constant="10" id="EEK-Z5-Knm"/>
                             <constraint firstAttribute="trailing" secondItem="GNy-Xv-MoB" secondAttribute="trailing" id="ImV-Ur-4bg"/>
                             <constraint firstItem="GNy-Xv-MoB" firstAttribute="leading" secondItem="513-mx-hdK" secondAttribute="leading" id="RcY-M0-0KB"/>
                             <constraint firstItem="MNq-qm-cZm" firstAttribute="leading" secondItem="513-mx-hdK" secondAttribute="leading" constant="2" id="b7f-0V-hit"/>
                             <constraint firstItem="GNy-Xv-MoB" firstAttribute="top" secondItem="513-mx-hdK" secondAttribute="top" id="evb-US-5Jc"/>
-                            <constraint firstAttribute="trailing" secondItem="S1S-0s-dfK" secondAttribute="trailing" constant="5" id="kaq-Rh-pvA"/>
-                            <constraint firstItem="S1S-0s-dfK" firstAttribute="leading" secondItem="MNq-qm-cZm" secondAttribute="trailing" constant="2" id="kyR-4U-LEJ"/>
-                            <constraint firstItem="MNq-qm-cZm" firstAttribute="top" secondItem="GNy-Xv-MoB" secondAttribute="bottom" constant="10" id="vyN-uw-XzO"/>
+                            <constraint firstItem="MNq-qm-cZm" firstAttribute="top" secondItem="GNy-Xv-MoB" secondAttribute="bottom" constant="3" id="vyN-uw-XzO"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -79,14 +84,14 @@
                 <constraint firstAttribute="bottom" secondItem="513-mx-hdK" secondAttribute="bottom" id="lGU-sn-9fD"/>
                 <constraint firstItem="513-mx-hdK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qdh-4U-IZl"/>
             </constraints>
-            <size key="customSize" width="180" height="180"/>
+            <size key="customSize" width="180" height="160"/>
             <connections>
                 <outlet property="headerImageView" destination="GNy-Xv-MoB" id="nS7-4C-dRh"/>
                 <outlet property="headerStarImageView" destination="idb-8H-6Tw" id="dtf-H3-opZ"/>
                 <outlet property="headerStarLabel" destination="dLH-aG-R8b" id="XdT-LA-zcN"/>
                 <outlet property="headerTitleLabel" destination="MNq-qm-cZm" id="JSd-Yt-MlB"/>
             </connections>
-            <point key="canvasLocation" x="228.98550724637684" y="69.642857142857139"/>
+            <point key="canvasLocation" x="228.98550724637684" y="62.946428571428569"/>
         </collectionViewCell>
     </objects>
     <resources>

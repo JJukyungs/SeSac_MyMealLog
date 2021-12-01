@@ -30,25 +30,38 @@ class AddViewController: UIViewController {
     @IBOutlet weak var secondImageView: UIImageView!
     @IBOutlet weak var thridImageView: UIImageView!
     
+    @IBOutlet weak var closeButton: UIButton!
     //var images = [UIImage]()
     var foodImages = [UIImage]()
+    var images = [String]()
     
     let datePicekr = UIDatePicker()
     
     // realm 연결
     let localRealm = try! Realm()
     
-    // 사용자 앨범에 접근
-//    let imagePickercontroller = UIImagePickerController()
+    var tasks: Results<UserData>!
+    var searchTasks: UserData?
     
+    var tasksRow: Int = 0
     
+    var addViewSatus: Bool = true
+    var imageSatus: Bool = true
+    var searchSet: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Realm 경로 찍기
         print("Realm is located at: ", localRealm.configuration.fileURL!)
-
+        tasks = localRealm.objects(UserData.self)
+        
         setUI()
+        
+        if addViewSatus {
+            setSaveUI()
+        }else {
+            setFixUI()
+        }
         createDatePicekrView()
         
 //        imagePickercontroller.delegate = self
@@ -59,10 +72,8 @@ class AddViewController: UIViewController {
     
     func setUI() {
         mainTitleLabel.textAlignment = .center
-        // 폰트
         mainTitleLabel.font = UIFont().mainTitleFont
         restaurantTextField.placeholder = String("식당이름 입력")
-        
         ratingLabel.font = UIFont().mainTitleFont
         
         saveButton.tintColor = .white
@@ -70,9 +81,88 @@ class AddViewController: UIViewController {
         saveButton.clipsToBounds = true
         saveButton.layer.cornerRadius = 10
         
-        ratingLabel.text = "0"
         contentTextView.layer.borderWidth = 2.0
         contentTextView.layer.borderColor = UIColor.mainRedColor?.cgColor
+ 
+    }
+    
+    func setSaveUI() {
+
+        ratingLabel.text = "0"
+
+        saveButton.setTitle("저 장", for: .normal)
+        closeButton.layer.isHidden = true
+
+    }
+    func setFixUI() {
+        
+        saveButton.setTitle("수 정", for: .normal)
+        closeButton.layer.isHidden = false
+        
+        if searchSet == false {
+            
+            ratingSlider.value = Float(tasks[tasksRow].ratingStar)!
+            restaurantTextField.text = tasks[tasksRow].restaurantTitle
+            ratingLabel.text = tasks[tasksRow].ratingStar
+            locationTextField.text = tasks[tasksRow].location
+            dateTextField.text = tasks[tasksRow].date
+            contentTextView.text = tasks[tasksRow].contentText
+            
+            switch images.count - 1 {
+            case 0:
+                firstImageView.image = loadImageFromDocumentDirectory(imageName: images[0]) ?? UIImage()
+            case 1:
+                firstImageView.image = loadImageFromDocumentDirectory(imageName: images[0]) ?? UIImage()
+                secondImageView.image = loadImageFromDocumentDirectory(imageName: images[1]) ?? UIImage()
+            case 2:
+                firstImageView.image = loadImageFromDocumentDirectory(imageName: images[0]) ?? UIImage()
+                secondImageView.image = loadImageFromDocumentDirectory(imageName: images[1]) ?? UIImage()
+                thridImageView.image = loadImageFromDocumentDirectory(imageName: images[2]) ?? UIImage()
+            default:
+                return
+                
+            }
+        } else {
+            
+            ratingSlider.value = Float(searchTasks!.ratingStar)!
+            restaurantTextField.text = searchTasks?.restaurantTitle
+            ratingLabel.text = searchTasks?.ratingStar
+            locationTextField.text = searchTasks?.location
+            dateTextField.text = searchTasks?.date
+            contentTextView.text = searchTasks?.contentText
+            
+            switch images.count - 1 {
+            case 0:
+                firstImageView.image = loadImageFromDocumentDirectory(imageName: images[0]) ?? UIImage()
+            case 1:
+                firstImageView.image = loadImageFromDocumentDirectory(imageName: images[0]) ?? UIImage()
+                secondImageView.image = loadImageFromDocumentDirectory(imageName: images[1]) ?? UIImage()
+            case 2:
+                firstImageView.image = loadImageFromDocumentDirectory(imageName: images[0]) ?? UIImage()
+                secondImageView.image = loadImageFromDocumentDirectory(imageName: images[1]) ?? UIImage()
+                thridImageView.image = loadImageFromDocumentDirectory(imageName: images[2]) ?? UIImage()
+            default:
+                return
+                
+            }
+        }
+        
+
+        
+        for index in 0...5 {
+            if let starImage = view.viewWithTag(index) as? UIImageView {
+                if index <= Int(ratingSlider.value) / 2 {
+                    starImage.image = UIImage(named: "star_full")
+                } else {
+                    if (2 * index - Int(ratingSlider.value)) <= 1 {
+                        starImage.image = UIImage(named: "star_half")
+                    } else {
+                        starImage.image = UIImage(named: "star_empty")
+                    }
+                }
+            }
+        }
+        
     }
 
     // DatePicker
@@ -119,6 +209,24 @@ class AddViewController: UIViewController {
             
         }
         print("save")
+    }
+    
+    func fixRealmData() {
+        
+        let tasksUpdate = tasks[tasksRow]
+        
+        try! localRealm.write {
+            tasksUpdate.ratingStar = ratingLabel.text!
+            tasksUpdate.restaurantTitle = restaurantTextField.text!
+            tasksUpdate.contentText = contentTextView.text
+            tasksUpdate.location = locationTextField.text
+            tasksUpdate.date = dateTextField.text!
+            if imageSatus {
+                tasksUpdate.foodImageCount = images.count
+            } else {
+                tasksUpdate.foodImageCount = foodImages.count
+            }
+        }
     }
     
     // 초기화 함수
@@ -186,6 +294,23 @@ class AddViewController: UIViewController {
         
         
     }
+    // 사진 불러오기
+    func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
+        
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        // 제약조건
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        // 최종 경로
+        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        if let directoryPath = path.first {
+            let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
+            
+            return UIImage(contentsOfFile: imageURL.path)
+        }
+        
+        return nil
+    }
     
     
     // fetch 가져오기
@@ -197,31 +322,69 @@ class AddViewController: UIViewController {
     // 저장 버튼 클릭시 입력받은 데이터가 Realm 으로 넘어감
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         
-        if restaurantTextField.text == "" && dateTextField.text == "" {
-            let errorAlert = UIAlertController(title: "작성하지 않은 부분이 있습니다.", message: "필수 공간을 채워주세요", preferredStyle: .alert)
-            let returnAlert = UIAlertAction(title: "확인", style: .default, handler: nil)
-            errorAlert.addAction(returnAlert)
-            self.present(errorAlert, animated: false)
-        } else if restaurantTextField.text != "" && dateTextField.text != "" {
-            let alert = UIAlertController(title: "저장하시겠습니까?", message: nil, preferredStyle: UIAlertController.Style.alert)
-            
-            let okAction = UIAlertAction(title: "확인", style: .default) { _ in
-                // alert 창에서
-                self.saveRealmData()
-                self.initAddView()
+        if addViewSatus {
+        
+            if restaurantTextField.text == "" && dateTextField.text == "" {
                 
-                let saveAlert = UIAlertController(title: "저장되었습니다.", message: "홈 화면에서 확인해보세요!", preferredStyle: .alert)
-                let saveOkAlert = UIAlertAction(title: "확인", style: .default, handler: nil)
-                saveAlert.addAction(saveOkAlert)
-                self.present(saveAlert, animated: false)
+                let errorAlert = UIAlertController(title: "작성하지 않은 부분이 있습니다.", message: "필수 공간을 채워주세요", preferredStyle: .alert)
+                let returnAlert = UIAlertAction(title: "확인", style: .default, handler: nil)
+                errorAlert.addAction(returnAlert)
+                self.present(errorAlert, animated: false)
+                
+            } else if restaurantTextField.text != "" && dateTextField.text != "" {
+                
+                let alert = UIAlertController(title: "저장하시겠습니까?", message: nil, preferredStyle: UIAlertController.Style.alert)
+                
+                let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                    // alert 창에서
+                    self.saveRealmData()
+                    self.initAddView()
+                    
+                    let saveAlert = UIAlertController(title: "저장되었습니다.", message: "홈 화면에서 확인해보세요!", preferredStyle: .alert)
+                    let saveOkAlert = UIAlertAction(title: "확인", style: .default, handler: nil)
+                    saveAlert.addAction(saveOkAlert)
+                    self.present(saveAlert, animated: false)
+                }
+                
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                
+                alert.addAction(okAction)
+                alert.addAction(cancelAction)
+                
+                self.present(alert, animated: false)
+            }
+        } else {
+            if restaurantTextField.text == "" && dateTextField.text == "" {
+                
+                let errorAlert = UIAlertController(title: "작성하지 않은 부분이 있습니다.", message: "필수 공간을 채워주세요", preferredStyle: .alert)
+                let returnAlert = UIAlertAction(title: "확인", style: .default, handler: nil)
+                errorAlert.addAction(returnAlert)
+                self.present(errorAlert, animated: false)
+                
+            } else if restaurantTextField.text != "" && dateTextField.text != "" {
+                
+                let alert = UIAlertController(title: "수정하시겠습니까?", message: nil, preferredStyle: UIAlertController.Style.alert)
+                
+                let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                    // alert 창에서
+                    self.fixRealmData()
+                    //self.initAddView()
+                    
+                    let saveAlert = UIAlertController(title: "수정되었습니다.", message: "홈 화면에서 확인해보세요!", preferredStyle: .alert)
+                    let saveOkAlert = UIAlertAction(title: "확인", style: .default, handler: nil)
+                    saveAlert.addAction(saveOkAlert)
+                    self.present(saveAlert, animated: false)
+                }
+                
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                
+                alert.addAction(okAction)
+                alert.addAction(cancelAction)
+                addViewSatus = true
+                self.present(alert, animated: false)
+                
             }
             
-            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-            
-            alert.addAction(okAction)
-            alert.addAction(cancelAction)
-            
-            self.present(alert, animated: false)
         }
     }
     
@@ -251,7 +414,7 @@ class AddViewController: UIViewController {
     
     // 카메라 버튼 클릭
     @IBAction func cameraButtonClicked(_ sender: UIButton) {
-
+        imageSatus = false
         // PHPicker 사용
         var configuartion = PHPickerConfiguration()
         // 선택할 수 있는 최대 asset 갯수, unlimited = 0
@@ -263,6 +426,11 @@ class AddViewController: UIViewController {
         self.present(picker, animated: true, completion: nil)
         
         
+    }
+    
+    
+    @IBAction func closeButtonClicked(_ sender: UIButton) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 

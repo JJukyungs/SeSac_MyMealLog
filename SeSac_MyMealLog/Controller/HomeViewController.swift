@@ -21,20 +21,39 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("HomeView : ViewDidLoad")
         navigationSetUI()
         //xib
         registerXib()
         delegateSet()
         
-        headerViewTitleLabel.font = UIFont().sectiontitleFont
-        headerViewTitleLabel.textColor = UIColor.lightGray
+        headerViewTitleLabel.font = UIFont().headerTitleFont
+        headerViewTitleLabel.textColor = UIColor.darkGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        print("HomeView : ViewWillAppear")
         tasks = localRealm.objects(UserData.self)
         homeTableView.reloadData()
         homeTableHeaderCollectionView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("HomeView : viewDidAppear")
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("HomeView : viewWillDisappear")
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("HomeView : viewDidDisappear")
+
     }
     
 
@@ -65,17 +84,18 @@ class HomeViewController: UIViewController {
     
     
     func navigationSetUI() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.mainRedColor
-        self.navigationItem.title = "내 뱃속 기록"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.barTintColor = UIColor.mainRedColor
+        navigationItem.title = "내 뱃속 기록"
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().smallNvTitleFont]
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.backgroundColor = .mainRedColor
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.backgroundColor = .mainRedColor
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().nvTitleFont]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().nvTitleFont]
     }
     
     // 도큐먼트 폴더 경로에서 이미지 찾아 넣기
@@ -133,8 +153,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! CustomSectionHeaderView //먼저 재사용 queue에서 header가져오기
         headerView.titleLabel.text = "뱃속 기록들"
-        headerView.titleLabel.font = UIFont().sectiontitleFont
-        headerView.titleLabel.textColor = UIColor.lightGray
+        headerView.titleLabel.font = UIFont().headerTitleFont
+        headerView.titleLabel.textColor = UIColor.darkGray
         
         return headerView
     }
@@ -186,14 +206,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             vc.images.append("\(row._id)_second.png")
             vc.images.append("\(row._id)_thrid.png")
         }
-       
-        vc.selectTitle = row.restaurantTitle
-        vc.selectRating = row.ratingStar
-        vc.selectDate = row.date
-        vc.selectContent = row.contentText ?? ""
-        vc.selectLocation = row.location ?? ""
-        
-        vc.modalPresentationStyle = .overFullScreen
+        vc.tasksRow = indexPath.row
+
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
 
@@ -227,7 +242,35 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let item = tasks[indexPath.item]
+        print("foodImagecount : \(item.foodImageCount)")
+        
+        
+        let sb = UIStoryboard.init(name: "Select", bundle: nil)
+        
+        let vc = sb.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
+        print("SelectViewController 창")
+        
+        switch item.foodImageCount - 1 {
+        case 0:
+            vc.images.append("\(item._id)_first.png")
+        case 1:
+            vc.images.append("\(item._id)_first.png")
+            vc.images.append("\(item._id)_second.png")
+        default:
+            // 2
+            vc.images.append("\(item._id)_first.png")
+            vc.images.append("\(item._id)_second.png")
+            vc.images.append("\(item._id)_thrid.png")
+        }
+        vc.tasksRow = indexPath.item
 
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
 
 }
 

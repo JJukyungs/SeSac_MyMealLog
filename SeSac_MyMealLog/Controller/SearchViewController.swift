@@ -12,11 +12,11 @@ class SearchViewController: UIViewController {
 
     let localRealm = try! Realm()
     
-//    var mainTasks: Results<UserData>? {
-//        didSet {
-//            searchTableView.reloadData()
-//        }
-//    }
+    var mainTasks: Results<UserData>! {
+        didSet {
+            searchTableView.reloadData()
+        }
+    }
     
     var searchTasks: Results<UserData>! {
         didSet {
@@ -40,15 +40,32 @@ class SearchViewController: UIViewController {
         delegateSet()
         registerXib()
         setUpUI()
+        
+        mainTasks = localRealm.objects(UserData.self)
+//        searchTasks = localRealm.objects(UserData.self)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        searchTableView.reloadData()
     }
     
     func setUpUI() {
-        navigationController?.navigationBar.topItem?.title = "내 뱃속 기록"
+        // navigation
+        navigationController?.navigationBar.topItem?.title = "뱃속 기록 찾아보기"
         navigationItem.searchController = searchController
-        searchController.searchBar.placeholder = "검색어를 입력하세요"
+        navigationController?.navigationBar.backgroundColor = .mainRedColor
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().smallNvTitleFont]
+        
+        
+        // search
+        searchController.searchBar.placeholder = "가게 이름, 위치를 입력하세요"
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.becomeFirstResponder()
-        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.searchBar.searchBarStyle = .prominent
+//        searchController.searchBar.becomeFirstResponder()
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.searchTextField.backgroundColor = .white
     }
     
     
@@ -88,31 +105,39 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
 
         
-        let text = searchController.searchBar.text?.lowercased() ?? ""
+
         
-        searchTasks = localRealm.objects(UserData.self).filter("restaurantTitle CONTAINS[c] '\(text)' OR location CONTAINS[c] '\(text)'")
-        searchStringText = text
+        guard let text = searchController.searchBar.text else { return }
+        
+//        let predicate = NSPredicate(format: "restaurantTitle CONTAINS[c] %@ OR location CONTAINS[c]  %@",text as CVarArg,text as CVarArg)
+        searchTasks = localRealm.objects(UserData.self).filter("restaurantTitle CONTAINS[c] %@ OR location CONTAINS[c] %@",text as CVarArg,text as CVarArg)
+        //self.searchTasks = mainTasks?.filter(predicate)
+        
+        searchTableView.reloadData()
+        
     }
 }
 
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         // 수정해보자
-//        if inSearchStatus {
-//            return searchTasks.count
-//        } else {
-//            return mainTasks.count
-//        }
-        return searchTasks.count
+        if inSearchStatus {
+            return searchTasks.count
+        } else {
+            return mainTasks.count
+        }
+        
+//        return inSearchStatus ? searchTasks.count : mainTasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
         
-//        let row = inSearchStatus ? searchTasks[indexPath.row] : mainTasks?[indexPath.row]
-        let row = searchTasks[indexPath.row]
+        let row = inSearchStatus ? searchTasks[indexPath.row] : mainTasks[indexPath.row]
+        //let row = searchTasks[indexPath.row]
         
         cell.searchTitleLabel.text = row.restaurantTitle
         cell.searchContentLabel.text = row.contentText
@@ -127,6 +152,64 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if inSearchStatus {
+            let row = searchTasks[indexPath.row]
+            print("foodImagecount : \(row.foodImageCount)")
+            
+            
+            let sb = UIStoryboard.init(name: "Select", bundle: nil)
+            
+            let vc = sb.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
+            print("SelectViewController 창")
+            
+            switch row.foodImageCount - 1 {
+            case 0:
+                vc.images.append("\(row._id)_first.png")
+            case 1:
+                vc.images.append("\(row._id)_first.png")
+                vc.images.append("\(row._id)_second.png")
+            default:
+                // 2
+                vc.images.append("\(row._id)_first.png")
+                vc.images.append("\(row._id)_second.png")
+                vc.images.append("\(row._id)_thrid.png")
+            }
+            vc.searchSet = true
+            vc.searchTasks = searchTasks[indexPath.row]
+            
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+            
+        } else {
+            
+            let row = mainTasks[indexPath.row]
+            print("foodImagecount : \(row.foodImageCount)")
+            
+            
+            let sb = UIStoryboard.init(name: "Select", bundle: nil)
+            
+            let vc = sb.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
+            print("SelectViewController 창")
+            
+            switch row.foodImageCount - 1 {
+            case 0:
+                vc.images.append("\(row._id)_first.png")
+            case 1:
+                vc.images.append("\(row._id)_first.png")
+                vc.images.append("\(row._id)_second.png")
+            default:
+                // 2
+                vc.images.append("\(row._id)_first.png")
+                vc.images.append("\(row._id)_second.png")
+                vc.images.append("\(row._id)_thrid.png")
+            }
+            vc.tasksRow = indexPath.row
+            
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     
 }
 
