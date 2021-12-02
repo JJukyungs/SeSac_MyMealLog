@@ -50,11 +50,11 @@
             </objects>
             <point key="canvasLocation" x="-470" y="1266"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--추가-->
         <scene sceneID="pdZ-c7-Vla">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J59-oM-Igp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="plus.square" catalog="system" id="XPQ-Ql-HqM"/>
+                    <tabBarItem key="tabBarItem" title="추가" image="plus.square" catalog="system" id="XPQ-Ql-HqM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oov-Rd-Zaw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -99,11 +99,11 @@
             </objects>
             <point key="canvasLocation" x="2412" y="1266"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--검색-->
         <scene sceneID="k8j-q6-YMJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UwF-Hm-Ygm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="Bk8-2R-VdT"/>
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="Bk8-2R-VdT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TON-H0-YHT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -118,17 +118,21 @@
             </objects>
             <point key="canvasLocation" x="336" y="863"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--홈-->
         <scene sceneID="Fmi-lM-PMw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YbJ-Yl-Sp5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="9ha-O0-7pb"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="9ha-O0-7pb"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3AC-zC-BZ3">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="3AC-zC-BZ3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="34K-hk-kTI">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="fCB-t0-W3A" kind="relationship" relationship="rootViewController" id="pKu-lS-oQp"/>
                     </connections>

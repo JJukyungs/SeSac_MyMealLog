@@ -37,9 +37,10 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
         delegateSet()
         registerXib()
-        setUpUI()
+        
         
         mainTasks = localRealm.objects(UserData.self)
 //        searchTasks = localRealm.objects(UserData.self)
@@ -52,13 +53,9 @@ class SearchViewController: UIViewController {
     }
     
     func setUpUI() {
-        // navigation
-        navigationController?.navigationBar.topItem?.title = "뱃속 기록 찾아보기"
+        navigationItem.hidesSearchBarWhenScrolling = false
+
         navigationItem.searchController = searchController
-        navigationController?.navigationBar.backgroundColor = .mainRedColor
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().smallNvTitleFont]
-        
-        
         // search
         searchController.searchBar.placeholder = "가게 이름, 위치를 입력하세요"
         searchController.obscuresBackgroundDuringPresentation = false
@@ -66,6 +63,23 @@ class SearchViewController: UIViewController {
 //        searchController.searchBar.becomeFirstResponder()
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.searchTextField.backgroundColor = .white
+//        searchController.searchBar.sizeToFit()
+        
+        // navigation
+        
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.mainRedColor
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().smallNvTitleFont]
+        navigationItem.standardAppearance = appearance
+        
+        
+        navigationController?.navigationBar.topItem?.title = "뱃속 기록 찾아보기"
+        
+        navigationController?.navigationBar.backgroundColor = UIColor.mainRedColor
+
+        
     }
     
     
