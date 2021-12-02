@@ -148,6 +148,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.searchDateLabel.text = row.date
         cell.searchStarLabel.text = row.ratingStar
         cell.searchImageView.image = loadImageFromDocumentDirectory(imageName: "\(row._id)_first.png") ?? UIImage(named: "titleIcon")
+        cell.searchLocationLabel.text = row.location
+        
         
         if inSearchStatus {
             cell.searchTitleLabel.highlight(searchText: searchStringText ?? "")
