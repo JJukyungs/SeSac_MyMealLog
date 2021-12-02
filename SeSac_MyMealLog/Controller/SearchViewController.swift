@@ -43,7 +43,6 @@ class SearchViewController: UIViewController {
         
         
         mainTasks = localRealm.objects(UserData.self)
-//        searchTasks = localRealm.objects(UserData.self)
         
     }
     
@@ -54,20 +53,16 @@ class SearchViewController: UIViewController {
     
     func setUpUI() {
         navigationItem.hidesSearchBarWhenScrolling = false
-
         navigationItem.searchController = searchController
+        
         // search
         searchController.searchBar.placeholder = "가게 이름, 위치를 입력하세요"
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.searchBarStyle = .prominent
-//        searchController.searchBar.becomeFirstResponder()
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.searchTextField.backgroundColor = .white
-//        searchController.searchBar.sizeToFit()
         
         // navigation
-        
-        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.mainRedColor
@@ -78,8 +73,6 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = "뱃속 기록 찾아보기"
         
         navigationController?.navigationBar.backgroundColor = UIColor.mainRedColor
-
-        
     }
     
     
@@ -123,10 +116,7 @@ extension SearchViewController: UISearchResultsUpdating {
         
         guard let text = searchController.searchBar.text else { return }
         
-//        let predicate = NSPredicate(format: "restaurantTitle CONTAINS[c] %@ OR location CONTAINS[c]  %@",text as CVarArg,text as CVarArg)
-        searchTasks = localRealm.objects(UserData.self).filter("restaurantTitle CONTAINS[c] %@ OR location CONTAINS[c] %@",text as CVarArg,text as CVarArg)
-        //self.searchTasks = mainTasks?.filter(predicate)
-        
+        searchTasks = localRealm.objects(UserData.self).filter("restaurantTitle CONTAINS[c] %@ OR location CONTAINS[c] %@",text as CVarArg,text as CVarArg)        
         searchTableView.reloadData()
         
     }

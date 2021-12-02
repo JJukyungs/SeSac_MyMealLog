@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o24-3G-hft">
-                                <rect key="frame" x="276" y="235.5" width="66" height="33"/>
+                                <rect key="frame" x="276" y="230.5" width="66" height="33"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lRO-HJ-WVL">
                                         <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
@@ -59,9 +60,9 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021-11-22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfC-b8-f7u">
-                                <rect key="frame" x="10" y="271.5" width="100" height="18"/>
+                                <rect key="frame" x="10" y="271.5" width="150" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="BRH-C4-kGb"/>
+                                    <constraint firstAttribute="width" constant="150" id="BRH-C4-kGb"/>
                                     <constraint firstAttribute="height" constant="18" id="h6L-l3-wAu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -84,7 +85,7 @@
                             <constraint firstAttribute="bottom" secondItem="DtN-xP-fie" secondAttribute="bottom" constant="5" id="Xau-aq-Sbn"/>
                             <constraint firstItem="9GU-vi-60J" firstAttribute="leading" secondItem="Cnt-7m-gmv" secondAttribute="leading" constant="10" id="aNk-eF-ccJ"/>
                             <constraint firstItem="sfC-b8-f7u" firstAttribute="top" secondItem="9GU-vi-60J" secondAttribute="bottom" constant="2" id="hlz-aG-Wk3"/>
-                            <constraint firstItem="o24-3G-hft" firstAttribute="top" secondItem="8Ls-Lm-IRT" secondAttribute="bottom" constant="20" id="inf-Nz-J5i"/>
+                            <constraint firstItem="o24-3G-hft" firstAttribute="top" secondItem="8Ls-Lm-IRT" secondAttribute="bottom" constant="15" id="inf-Nz-J5i"/>
                             <constraint firstAttribute="trailing" secondItem="8Ls-Lm-IRT" secondAttribute="trailing" id="iyk-nI-SZu"/>
                             <constraint firstItem="o24-3G-hft" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9GU-vi-60J" secondAttribute="trailing" constant="20" id="kt1-OT-26F"/>
                             <constraint firstAttribute="trailing" secondItem="DtN-xP-fie" secondAttribute="trailing" constant="10" id="ppj-PD-7r2"/>

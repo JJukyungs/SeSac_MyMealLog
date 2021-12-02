@@ -176,7 +176,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none
         
-//        cell.homeTableCellImageView.image = UIImage(named: "test")
         cell.homeTableCellImageView.image = loadImageFromDocumentDirectory(imageName: "\(row._id)_first.png") ?? UIImage(named: "titleIcon")
         cell.homeTableCellStarImageView.image = UIImage(named: "star_full")
         
@@ -218,6 +217,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.present(vc, animated: true, completion: nil)
     }
 
+    // 스와이프시 delete 기능
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
             let delete = UIContextualAction(style: .normal, title: "") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
@@ -234,7 +234,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
             delete.backgroundColor = .red
             delete.image = UIImage(systemName: "trash")
-            delete.title = nil
+            delete.title = "삭제"
         
             return UISwipeActionsConfiguration(actions: [delete])
     }
