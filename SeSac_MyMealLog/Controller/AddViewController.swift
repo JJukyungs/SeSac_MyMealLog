@@ -83,7 +83,8 @@ class AddViewController: UIViewController {
         
         contentTextView.layer.borderWidth = 2.0
         contentTextView.layer.borderColor = UIColor.mainRedColor?.cgColor
- 
+        cameraButton.layer.borderWidth = 2.0
+        cameraButton.layer.borderColor = UIColor.mainRedColor?.cgColor
     }
     
     func setSaveUI() {

@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     
     let localRealm = try! Realm()
     var tasks: Results<UserData>!
-    
+    var dateTasks: Results<UserData>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,8 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(true)
         print("HomeView : ViewWillAppear")
         tasks = localRealm.objects(UserData.self)
+        dateTasks = localRealm.objects(UserData.self)
+        dateTasks = dateTasks!.sorted(byKeyPath: "date", ascending: false)
         homeTableView.reloadData()
         homeTableHeaderCollectionView.reloadData()
     }
@@ -58,9 +60,7 @@ class HomeViewController: UIViewController {
     
 
     private func delegateSet() {
-//        self.tagCollectionView.delegate = self
-//        self.tagCollectionView.dataSource = self
-//
+
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
         
@@ -71,8 +71,7 @@ class HomeViewController: UIViewController {
     
     
     private func registerXib() {
-        // tag collectionView -> 후에 세그먼트 컨트롤로 바꿀예정
-        //self.tagCollectionView.register(UINib(nibName: "TagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TagCollectionViewCell")
+       
         
         self.homeTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         
@@ -84,18 +83,22 @@ class HomeViewController: UIViewController {
     
     
     func navigationSetUI() {
-        navigationController?.navigationBar.barTintColor = UIColor.mainRedColor
-        navigationItem.title = "내 뱃속 기록"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().smallNvTitleFont]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.mainRedColor
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().nvTitleFont]
+
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().smallNvTitleFont]
+        navigationItem.standardAppearance = appearance
+
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
-        
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.topItem?.title = "내 뱃속 기록"
         navigationController?.navigationBar.backgroundColor = .mainRedColor
-        navigationController?.navigationBar.tintColor = UIColor.white
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().nvTitleFont]
+        navigationController?.navigationBar.isTranslucent = true
+                                                    
     }
     
     // 도큐먼트 폴더 경로에서 이미지 찾아 넣기
@@ -164,11 +167,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
+        
         let row = tasks[indexPath.row]
         
         // 나중에 분기 처리 해야함
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        
+        cell.selectionStyle = .none
         
 //        cell.homeTableCellImageView.image = UIImage(named: "test")
         cell.homeTableCellImageView.image = loadImageFromDocumentDirectory(imageName: "\(row._id)_first.png") ?? UIImage(named: "titleIcon")
@@ -212,6 +218,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.present(vc, animated: true, completion: nil)
     }
 
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+            let delete = UIContextualAction(style: .normal, title: "") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+                print("delete")
+                // 삭제기능 구현
+        
+                let taskToDelete = self.tasks[indexPath.row]
+                try! self.localRealm.write {
+                    self.localRealm.delete(taskToDelete)
+                }
+    
+                self.homeTableView.reloadData()
+                self.homeTableHeaderCollectionView.reloadData()
+            }
+            delete.backgroundColor = .red
+            delete.image = UIImage(systemName: "trash")
+            delete.title = nil
+        
+            return UISwipeActionsConfiguration(actions: [delete])
+    }
 }
 
 
@@ -221,8 +247,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 최신 거 5개만 받아올수 있게
-        if tasks.count <= 5 {
-            return tasks.count
+        if dateTasks.count <= 5 {
+            return dateTasks.count
         } else {
             return 5
         }
@@ -230,7 +256,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let item = tasks[indexPath.item]
+        let item = dateTasks[indexPath.item]
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeHeaderCollectionViewCell", for: indexPath) as? HomeHeaderCollectionViewCell else { return UICollectionViewCell() }
 
@@ -245,7 +271,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let item = tasks[indexPath.item]
+        let item = dateTasks[indexPath.item]
         print("foodImagecount : \(item.foodImageCount)")
         
         
@@ -266,8 +292,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             vc.images.append("\(item._id)_second.png")
             vc.images.append("\(item._id)_thrid.png")
         }
-        vc.tasksRow = indexPath.item
-
+//        vc.tasksRow = indexPath.item
+        vc.searchSet = true
+        vc.searchTasks = dateTasks[indexPath.row]
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
