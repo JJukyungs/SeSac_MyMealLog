@@ -78,7 +78,7 @@
                                                     <constraint firstAttribute="width" constant="360" id="JBb-RS-voy"/>
                                                 </constraints>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="r9U-ps-YhG">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="r9U-ps-YhG" customClass="SliderStar" customModule="SeSac_MyMealLog" customModuleProvider="target">
                                                 <rect key="frame" x="28" y="191" width="358" height="31"/>
                                                 <color key="tintColor" name="mainRedColor"/>
                                                 <constraints>
