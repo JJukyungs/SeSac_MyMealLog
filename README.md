@@ -27,7 +27,7 @@
 ### 프로젝트 일정
 [프로젝트 일정](https://www.notion.so/a73c6226c94241c195ad3fbe1bcb4a96?v=40a4655df9984f95957dacf06a1c48bd)
 
-### 내 뱃속의 기록 UI
+### 내 뱃속의 기록 UI [프로토 타입] - UI 다 변경 예정
 ![프로젝트 UI](https://user-images.githubusercontent.com/91923809/142586039-4e74aad8-a81a-4352-bc01-e60fd0a7d3b1.png)
 
 ### Notion 연결
