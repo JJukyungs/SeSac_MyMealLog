@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E16A779276744CA00EAB9DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E16A778276744CA00EAB9DA /* GoogleService-Info.plist */; };
+		1E16A77B2767A3EA00EAB9DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E16A778276744CA00EAB9DA /* GoogleService-Info.plist */; };
 		1EB7A69C2744E9A700ECC25C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A69B2744E9A700ECC25C /* AppDelegate.swift */; };
 		1EB7A69E2744E9A700ECC25C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A69D2744E9A700ECC25C /* SceneDelegate.swift */; };
 		1EB7A6A02744E9A700ECC25C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A69F2744E9A700ECC25C /* ViewController.swift */; };
@@ -342,7 +342,7 @@
 				1EB7A6DC27479D9C00ECC25C /* Home.storyboard in Resources */,
 				1EB7A717274E980300ECC25C /* ONE Mobile Title OTF.otf in Resources */,
 				1EB7A6E02747A2C300ECC25C /* MyPage.storyboard in Resources */,
-				1E16A779276744CA00EAB9DA /* GoogleService-Info.plist in Resources */,
+				1E16A77B2767A3EA00EAB9DA /* GoogleService-Info.plist in Resources */,
 				1EB7A719274E9AF700ECC25C /* ONE Mobile OTF Light.otf in Resources */,
 				1EB7A6EA2749527700ECC25C /* TagCollectionViewCell.xib in Resources */,
 				1EB7A6A32744E9A700ECC25C /* Main.storyboard in Resources */,
@@ -390,7 +390,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		310B0D2B0FBFEBD73FCCCB92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
