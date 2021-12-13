@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E16A779276744CA00EAB9DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E16A778276744CA00EAB9DA /* GoogleService-Info.plist */; };
 		1EB7A69C2744E9A700ECC25C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A69B2744E9A700ECC25C /* AppDelegate.swift */; };
 		1EB7A69E2744E9A700ECC25C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A69D2744E9A700ECC25C /* SceneDelegate.swift */; };
 		1EB7A6A02744E9A700ECC25C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A69F2744E9A700ECC25C /* ViewController.swift */; };
@@ -48,9 +49,11 @@
 		1EB7A729275511E900ECC25C /* Select.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7A728275511E900ECC25C /* Select.storyboard */; };
 		1EB7A72B2755149000ECC25C /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A72A2755149000ECC25C /* SelectViewController.swift */; };
 		1EB7A72D27569AAC00ECC25C /* HighlightLabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7A72C27569AAC00ECC25C /* HighlightLabel+Extension.swift */; };
+		7959E3C08440476FE7DB57A0 /* Pods_SeSac_MyMealLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411E0D8C470F855C8BC8BAF6 /* Pods_SeSac_MyMealLog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E16A778276744CA00EAB9DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1EB7A6982744E9A700ECC25C /* SeSac_MyMealLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSac_MyMealLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EB7A69B2744E9A700ECC25C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EB7A69D2744E9A700ECC25C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +93,9 @@
 		1EB7A728275511E900ECC25C /* Select.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Select.storyboard; sourceTree = "<group>"; };
 		1EB7A72A2755149000ECC25C /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		1EB7A72C27569AAC00ECC25C /* HighlightLabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HighlightLabel+Extension.swift"; sourceTree = "<group>"; };
+		411E0D8C470F855C8BC8BAF6 /* Pods_SeSac_MyMealLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSac_MyMealLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		937E958DB406D4C205B6F0D9 /* Pods-SeSac_MyMealLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSac_MyMealLog.debug.xcconfig"; path = "Target Support Files/Pods-SeSac_MyMealLog/Pods-SeSac_MyMealLog.debug.xcconfig"; sourceTree = "<group>"; };
+		FA0B1F989D4BCF6469A30E28 /* Pods-SeSac_MyMealLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSac_MyMealLog.release.xcconfig"; path = "Target Support Files/Pods-SeSac_MyMealLog/Pods-SeSac_MyMealLog.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 				1EB7A72727543A3000ECC25C /* IQKeyboardManagerSwift in Frameworks */,
 				1EB7A702274E3C4A00ECC25C /* RealmSwift in Frameworks */,
 				1EB7A700274E3C4A00ECC25C /* Realm in Frameworks */,
+				7959E3C08440476FE7DB57A0 /* Pods_SeSac_MyMealLog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			children = (
 				1EB7A69A2744E9A700ECC25C /* SeSac_MyMealLog */,
 				1EB7A6992744E9A700ECC25C /* Products */,
+				4E2D192C2D550C57D2619F9D /* Pods */,
+				9ACAEC050914C1943380D7C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +141,7 @@
 				1EB7A6D02747962A00ECC25C /* Model */,
 				1EB7A6CF2747962100ECC25C /* View */,
 				1EB7A6A42744E9A800ECC25C /* Assets.xcassets */,
+				1E16A778276744CA00EAB9DA /* GoogleService-Info.plist */,
 				1EB7A6A92744E9A800ECC25C /* Info.plist */,
 			);
 			path = SeSac_MyMealLog;
@@ -232,6 +242,23 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		4E2D192C2D550C57D2619F9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				937E958DB406D4C205B6F0D9 /* Pods-SeSac_MyMealLog.debug.xcconfig */,
+				FA0B1F989D4BCF6469A30E28 /* Pods-SeSac_MyMealLog.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9ACAEC050914C1943380D7C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				411E0D8C470F855C8BC8BAF6 /* Pods_SeSac_MyMealLog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,9 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1EB7A6AC2744E9A800ECC25C /* Build configuration list for PBXNativeTarget "SeSac_MyMealLog" */;
 			buildPhases = (
+				310B0D2B0FBFEBD73FCCCB92 /* [CP] Check Pods Manifest.lock */,
 				1EB7A6942744E9A700ECC25C /* Sources */,
 				1EB7A6952744E9A700ECC25C /* Frameworks */,
 				1EB7A6962744E9A700ECC25C /* Resources */,
+				1B2D5987085BEBE8815767A7 /* [CP] Embed Pods Frameworks */,
+				1E16A77A27678A0D00EAB9DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -312,6 +342,7 @@
 				1EB7A6DC27479D9C00ECC25C /* Home.storyboard in Resources */,
 				1EB7A717274E980300ECC25C /* ONE Mobile Title OTF.otf in Resources */,
 				1EB7A6E02747A2C300ECC25C /* MyPage.storyboard in Resources */,
+				1E16A779276744CA00EAB9DA /* GoogleService-Info.plist in Resources */,
 				1EB7A719274E9AF700ECC25C /* ONE Mobile OTF Light.otf in Resources */,
 				1EB7A6EA2749527700ECC25C /* TagCollectionViewCell.xib in Resources */,
 				1EB7A6A32744E9A700ECC25C /* Main.storyboard in Resources */,
@@ -323,6 +354,67 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B2D5987085BEBE8815767A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeSac_MyMealLog/Pods-SeSac_MyMealLog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeSac_MyMealLog/Pods-SeSac_MyMealLog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SeSac_MyMealLog/Pods-SeSac_MyMealLog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E16A77A27678A0D00EAB9DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
+		};
+		310B0D2B0FBFEBD73FCCCB92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SeSac_MyMealLog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1EB7A6942744E9A700ECC25C /* Sources */ = {
@@ -407,7 +499,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -491,6 +583,7 @@
 		};
 		1EB7A6AD2744E9A800ECC25C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 937E958DB406D4C205B6F0D9 /* Pods-SeSac_MyMealLog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -525,6 +618,7 @@
 		};
 		1EB7A6AE2744E9A800ECC25C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA0B1F989D4BCF6469A30E28 /* Pods-SeSac_MyMealLog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
