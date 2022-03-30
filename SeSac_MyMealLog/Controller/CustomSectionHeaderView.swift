@@ -17,6 +17,5 @@ class CustomSectionHeaderView: UITableViewHeaderFooterView {
         super.awakeFromNib()
         
         titleLabel.font = UIFont().nvTitleFont
-//        backgroundView = customView
     }
 }

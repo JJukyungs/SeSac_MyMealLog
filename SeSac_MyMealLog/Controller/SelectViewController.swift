@@ -40,13 +40,7 @@ class SelectViewController: UIViewController {
     var searchSet: Bool = false
     
     var searchTasks: UserData?
-    
-//    var selectTitle: String = ""
-//    var selectRating: String = ""
-//    var selectLocation: String = ""
-//    var selectDate: String = ""
-//    var selectContent: String = ""
-//
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         tasks = localRealm.objects(UserData.self)

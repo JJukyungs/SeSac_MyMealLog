@@ -42,19 +42,16 @@ class HomeViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("HomeView : viewDidAppear")
 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("HomeView : viewWillDisappear")
 
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("HomeView : viewDidDisappear")
 
     }
     
